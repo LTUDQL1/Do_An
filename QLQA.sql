@@ -20,6 +20,8 @@ Create table MON_AN
 	Constraint PK_MON_AN
 	primary key(MaMA),
 )
+alter table MON_AN
+add MaCN char(10)
 Create table CHI_NHANH
 (
 	MaCN char(10) NOT NULL,
@@ -55,6 +57,8 @@ Create table DAT_HANG
 	Constraint PK_DAT_HANG
 	primary key(MaDH),
 )
+alter table DAT_HANG
+add MaDonHang char(10)
 Create table CHI_TIET_DAT_HANG
 (
 	MaDH char(10),
@@ -186,3 +190,77 @@ ADD
 	Constraint FK_BAOCAO_CHINHANH
 	Foreign Key (MaCN)
 	References CHI_NHANH(MaCN)
+Create table DANH_MUC_MON_AN
+(
+	MaDMMA char(10) not null,
+	TenDMMA nvarchar(50),
+	MaMA char(10),
+	constraint PK_DANH_MUC_MON_AN
+	primary key(MaDMMA),
+)
+create table DANH_MUC_CHI_NHANH
+(
+	MaDMCN char(10) not null,
+	TenDMCN nvarchar(50),
+	MaCN char(10),
+	constraint PK_DANH_MUC_CHI_NHANH
+	PRIMARY KEY(MaDMCN)
+)
+
+alter table DANH_MUC_MON_AN
+add
+	constraint FK_DANHMUC_MONAN_CHINHANH
+	foreign key(MaMA)
+	references MON_AN(MaMA)
+alter table DANH_MUC_CHI_NHANH
+add
+	constraint FK_DANHMUC_CHINHANH
+	foreign key(MaCN)
+	references CHI_NHANH(MaCN)
+alter table MON_AN
+add
+	constraint FK_MONAN_CHINHANH
+	foreign key(MaCN)
+	references CHI_NHANH(MaCN)
+
+create table DON_HANG
+(
+	MaDonHang char(10) not null,
+	TenDH nvarchar(50),
+	MaCN char(10),
+	MaMA char(10),
+	constraint PK_DON_HANG
+	primary key(MaDonHang),
+)
+alter table DON_HANG
+add MaNV char(10)
+alter table DAT_HANG
+add
+	constraint FK_DATHANG_DONHANG
+	foreign key (MaDonHang)
+	references DON_HANG(MaDonHang)
+alter table DON_HANG
+add 
+	constraint FK_DONHANG_MONAN
+	foreign key(MaMA)
+	references MON_AN(MaMA)
+alter table DON_HANG
+add 
+	constraint FK_DONHANG_CHINHANH
+	foreign key(MaCN)
+	references CHI_NHANH(MaCN)
+create table CHI_TIET_DON_HANG
+(
+	MaDonHang char(10),
+	TenMonAn nvarchar(50),
+	SoLuong int,
+	DonGia int,
+	TenNhanVien nvarchar(50)
+	constraint pf_CT_DON_HANG
+	primary key(MaDonHang)
+)
+alter table CHI_TIET_DON_HANG
+add
+	constraint FK_CT_DONHANG
+	foreign key(MaDonHang)
+	references DON_HANG(MaDonHang)
