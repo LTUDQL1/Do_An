@@ -12,6 +12,7 @@ namespace QLQuanAn
 {
     public partial class ProFile : Form
     {
+        public static string fn = string.Empty;
         public ProFile()
         {
             InitializeComponent();
@@ -25,6 +26,11 @@ namespace QLQuanAn
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void ProFile_Load(object sender, EventArgs e)
+        {
+            this.acc.Text = UDQL.username;
         }
     }
 }

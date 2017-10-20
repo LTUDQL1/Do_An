@@ -13,6 +13,7 @@ namespace QLQuanAn
     public partial class UDQL : Form
     {
         DataTable DT;
+        public static string username = string.Empty;
         public UDQL()
         {
             InitializeComponent();
@@ -39,7 +40,11 @@ namespace QLQuanAn
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             DangNhap D = new DangNhap();
-            D.Show();
+            D.ShowDialog();
+            if (!string.IsNullOrEmpty(username))
+            {
+                this.User.Text = username;
+            }
             toolStrip1.Hide();
             toolStrip2.Show();
         }

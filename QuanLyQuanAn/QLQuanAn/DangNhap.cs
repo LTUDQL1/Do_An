@@ -12,7 +12,6 @@ namespace QLQuanAn
 {
     public partial class DangNhap : Form
     {
-
         public DangNhap()
         {
             InitializeComponent();
@@ -20,7 +19,9 @@ namespace QLQuanAn
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
+            UDQL.username = TK.Text;
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

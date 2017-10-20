@@ -36,7 +36,7 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.User = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -49,6 +49,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Store = new System.Windows.Forms.DataGridView();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -72,16 +73,15 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.Store = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Store)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Store)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -149,7 +149,7 @@
             // 
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
+            this.User,
             this.toolStripDropDownButton3,
             this.toolStripSeparator1,
             this.toolStripButton4,
@@ -161,19 +161,19 @@
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripDropDownButton1
+            // User
             // 
-            this.toolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.User.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.User.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.User.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.ShowDropDownArrow = false;
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(66, 22);
-            this.toolStripDropDownButton1.Text = "UserName";
+            this.User.Image = ((System.Drawing.Image)(resources.GetObject("User.Image")));
+            this.User.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.User.Name = "User";
+            this.User.ShowDropDownArrow = false;
+            this.User.Size = new System.Drawing.Size(66, 22);
+            this.User.Text = "UserName";
             // 
             // toolStripMenuItem1
             // 
@@ -281,6 +281,15 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "   Đặt Món   ";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // Store
+            // 
+            this.Store.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Store.Location = new System.Drawing.Point(373, 37);
+            this.Store.Name = "Store";
+            this.Store.Size = new System.Drawing.Size(241, 227);
+            this.Store.TabIndex = 11;
             // 
             // button17
             // 
@@ -530,15 +539,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // Store
-            // 
-            this.Store.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Store.Location = new System.Drawing.Point(373, 37);
-            this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(241, 227);
-            this.Store.TabIndex = 11;
-            // 
             // UDQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,11 +558,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Store)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Store)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,7 +574,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton User;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
