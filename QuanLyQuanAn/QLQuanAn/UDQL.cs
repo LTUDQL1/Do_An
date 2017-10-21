@@ -30,8 +30,10 @@ namespace QLQuanAn
             toolStrip2.Hide();
             DT = new DataTable();
             DT.Columns.Add("Stt");
-            DT.Columns.Add("Tên");
-            DT.Columns.Add("Đơn GIá");
+            DT.Columns.Add("Tên món ăn");
+            DT.Columns.Add("Số lượng");
+            DT.Columns.Add("Đơn Giá");
+            
 
             Store.DataSource = DT;
             Store.ReadOnly = false;
@@ -190,5 +192,13 @@ namespace QLQuanAn
             Nuoc N = new Nuoc();
             N.Show();
         }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            HoaDon hd = new HoaDon();
+            hd.ShowDialog();
+        }
+
+        
     }
 }

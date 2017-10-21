@@ -51,7 +51,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Store = new System.Windows.Forms.DataGridView();
             this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.btnXacNhan = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(630, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(624, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -115,7 +115,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(54, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(55, 22);
             this.toolStripButton1.Text = "Đăng Ký";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -157,7 +157,7 @@
             this.toolStripButton3});
             this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(630, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(624, 25);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -268,7 +268,7 @@
             // 
             this.tabPage4.Controls.Add(this.Store);
             this.tabPage4.Controls.Add(this.button17);
-            this.tabPage4.Controls.Add(this.button16);
+            this.tabPage4.Controls.Add(this.btnXacNhan);
             this.tabPage4.Controls.Add(this.button15);
             this.tabPage4.Controls.Add(this.button14);
             this.tabPage4.Controls.Add(this.label3);
@@ -288,7 +288,7 @@
             this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Store.Location = new System.Drawing.Point(373, 37);
             this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(241, 227);
+            this.Store.Size = new System.Drawing.Size(253, 227);
             this.Store.TabIndex = 11;
             // 
             // button17
@@ -302,15 +302,16 @@
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
-            // button16
+            // btnXacNhan
             // 
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button16.Location = new System.Drawing.Point(445, 280);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(106, 27);
-            this.button16.TabIndex = 9;
-            this.button16.Text = "Xác Nhận";
-            this.button16.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.Location = new System.Drawing.Point(445, 280);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(106, 27);
+            this.btnXacNhan.TabIndex = 9;
+            this.btnXacNhan.Text = "Xác Nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // button15
             // 
@@ -543,7 +544,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 374);
+            this.ClientSize = new System.Drawing.Size(624, 374);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
@@ -589,7 +590,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label3;
