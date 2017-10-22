@@ -93,7 +93,7 @@
             this.toolStripDropDownButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(624, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(947, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -115,7 +115,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(55, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(54, 22);
             this.toolStripButton1.Text = "Đăng Ký";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -157,7 +157,7 @@
             this.toolStripButton3});
             this.toolStrip2.Location = new System.Drawing.Point(0, 25);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(624, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(947, 25);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -251,7 +251,7 @@
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(630, 348);
+            this.panel1.Size = new System.Drawing.Size(947, 431);
             this.panel1.TabIndex = 2;
             // 
             // tabControl1
@@ -261,7 +261,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(630, 348);
+            this.tabControl1.Size = new System.Drawing.Size(947, 441);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage4
@@ -277,7 +277,7 @@
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(622, 322);
+            this.tabPage4.Size = new System.Drawing.Size(939, 415);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "   Đặt Món   ";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -286,15 +286,15 @@
             // 
             this.Store.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Store.Location = new System.Drawing.Point(373, 37);
+            this.Store.Location = new System.Drawing.Point(448, 34);
             this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(253, 227);
+            this.Store.Size = new System.Drawing.Size(483, 303);
             this.Store.TabIndex = 11;
             // 
             // button17
             // 
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button17.Location = new System.Drawing.Point(270, 55);
+            this.button17.Location = new System.Drawing.Point(353, 47);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(89, 23);
             this.button17.TabIndex = 10;
@@ -305,7 +305,7 @@
             // btnXacNhan
             // 
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.Location = new System.Drawing.Point(445, 280);
+            this.btnXacNhan.Location = new System.Drawing.Point(641, 353);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(106, 27);
             this.btnXacNhan.TabIndex = 9;
@@ -316,7 +316,7 @@
             // button15
             // 
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(270, 105);
+            this.button15.Location = new System.Drawing.Point(353, 89);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(89, 23);
             this.button15.TabIndex = 8;
@@ -326,7 +326,7 @@
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(270, 147);
+            this.button14.Location = new System.Drawing.Point(353, 139);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(89, 23);
             this.button14.TabIndex = 7;
@@ -337,7 +337,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(440, 5);
+            this.label3.Location = new System.Drawing.Point(636, 5);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 26);
             this.label3.TabIndex = 4;
@@ -347,7 +347,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(98, 5);
+            this.label2.Location = new System.Drawing.Point(133, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 26);
             this.label2.TabIndex = 2;
@@ -366,12 +366,12 @@
             this.panel3.Controls.Add(this.button2);
             this.panel3.Location = new System.Drawing.Point(19, 34);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(236, 273);
+            this.panel3.Size = new System.Drawing.Size(310, 346);
             this.panel3.TabIndex = 1;
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(85, 155);
+            this.button13.Location = new System.Drawing.Point(226, 84);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(65, 65);
             this.button13.TabIndex = 7;
@@ -411,7 +411,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(13, 155);
+            this.button9.Location = new System.Drawing.Point(226, 13);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(65, 65);
             this.button9.TabIndex = 3;
@@ -457,7 +457,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(622, 322);
+            this.tabPage1.Size = new System.Drawing.Size(939, 415);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "   QL Món Ăn   ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -482,13 +482,13 @@
             this.panel2.Controls.Add(this.button5);
             this.panel2.Location = new System.Drawing.Point(8, 26);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(604, 289);
+            this.panel2.Size = new System.Drawing.Size(925, 366);
             this.panel2.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(123, 152);
+            this.button1.Location = new System.Drawing.Point(753, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 118);
             this.button1.TabIndex = 11;
@@ -499,7 +499,7 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(307, 152);
+            this.button8.Location = new System.Drawing.Point(578, 18);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(138, 118);
             this.button8.TabIndex = 10;
@@ -510,7 +510,7 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(400, 18);
+            this.button7.Location = new System.Drawing.Point(397, 18);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(138, 118);
             this.button7.TabIndex = 9;
@@ -544,7 +544,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 374);
+            this.ClientSize = new System.Drawing.Size(947, 451);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);

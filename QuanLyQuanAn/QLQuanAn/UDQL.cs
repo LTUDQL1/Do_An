@@ -33,7 +33,7 @@ namespace QLQuanAn
             DT.Columns.Add("Tên món ăn");
             DT.Columns.Add("Số lượng");
             DT.Columns.Add("Đơn Giá");
-            
+            DT.Columns.Add("Thành Tiền");
 
             Store.DataSource = DT;
             Store.ReadOnly = false;

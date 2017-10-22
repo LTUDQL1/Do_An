@@ -31,6 +31,8 @@ namespace QLQuanAn
             DT.Columns.Add("Stt");
             DT.Columns.Add("Tên");
             DT.Columns.Add("Đơn GIá");
+            DT.Columns.Add("Số Lượng");
+            DT.Columns.Add("Thành Tiền");
 
             Store.DataSource = DT;
             Store.ReadOnly = false;

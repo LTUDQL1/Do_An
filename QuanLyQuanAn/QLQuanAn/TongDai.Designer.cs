@@ -69,7 +69,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(630, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(817, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -145,7 +145,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(412, 8);
+            this.label3.Location = new System.Drawing.Point(529, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 26);
             this.label3.TabIndex = 14;
@@ -260,7 +260,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(402, 295);
+            this.button1.Location = new System.Drawing.Point(520, 295);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 42);
             this.button1.TabIndex = 19;
@@ -282,7 +282,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(630, 347);
+            this.panel1.Size = new System.Drawing.Size(817, 347);
             this.panel1.TabIndex = 20;
             // 
             // Store
@@ -291,14 +291,14 @@
             this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Store.Location = new System.Drawing.Point(326, 40);
             this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(292, 222);
+            this.Store.Size = new System.Drawing.Size(479, 222);
             this.Store.TabIndex = 21;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(334, 270);
+            this.label1.Location = new System.Drawing.Point(444, 270);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 15);
             this.label1.TabIndex = 20;
@@ -311,7 +311,7 @@
             "Chi Nhánh 1",
             "Chi Nhánh 2",
             "Chi Nhánh 3"});
-            this.comboBox1.Location = new System.Drawing.Point(410, 268);
+            this.comboBox1.Location = new System.Drawing.Point(520, 268);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(185, 21);
             this.comboBox1.TabIndex = 8;
@@ -320,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 374);
+            this.ClientSize = new System.Drawing.Size(817, 393);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "TongDai";

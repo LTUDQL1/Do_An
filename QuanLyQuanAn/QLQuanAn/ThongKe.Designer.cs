@@ -104,16 +104,16 @@
             // DSTK
             // 
             this.DSTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DSTK.Location = new System.Drawing.Point(15, 71);
+            this.DSTK.Location = new System.Drawing.Point(15, 60);
             this.DSTK.Name = "DSTK";
-            this.DSTK.Size = new System.Drawing.Size(482, 234);
+            this.DSTK.Size = new System.Drawing.Size(563, 271);
             this.DSTK.TabIndex = 12;
             // 
             // ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 317);
+            this.ClientSize = new System.Drawing.Size(590, 343);
             this.Controls.Add(this.DSTK);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
