@@ -69,7 +69,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(817, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(843, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -282,7 +282,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(817, 347);
+            this.panel1.Size = new System.Drawing.Size(843, 347);
             this.panel1.TabIndex = 20;
             // 
             // Store
@@ -291,7 +291,7 @@
             this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Store.Location = new System.Drawing.Point(326, 40);
             this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(479, 222);
+            this.Store.Size = new System.Drawing.Size(514, 222);
             this.Store.TabIndex = 21;
             // 
             // label1
@@ -320,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 393);
+            this.ClientSize = new System.Drawing.Size(843, 393);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "TongDai";

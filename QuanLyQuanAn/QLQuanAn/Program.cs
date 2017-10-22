@@ -16,7 +16,7 @@ namespace QLQuanAn
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UDQL());
+            Application.Run(new TongDai());
         }
     }
 }
