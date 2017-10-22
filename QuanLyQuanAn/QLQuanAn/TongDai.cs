@@ -91,5 +91,10 @@ namespace QLQuanAn
             GhiChu G = new GhiChu();
             G.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Thành Công");
+        }
     }
 }
