@@ -25,5 +25,6 @@ namespace QLQuanAn
             DSHD.Columns.Add("Don Gia");
             dgvHoaDon.DataSource = DSHD;
         }
+        
     }
 }

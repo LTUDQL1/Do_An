@@ -198,7 +198,5 @@ namespace QLQuanAn
             HoaDon hd = new HoaDon();
             hd.ShowDialog();
         }
-
-        
     }
 }
