@@ -56,6 +56,12 @@
     <Compile Include="Chay.Designer.cs">
       <DependentUpon>Chay.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChiNhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiNhanh.Designer.cs">
+      <DependentUpon>ChiNhanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Chay.resx">
       <DependentUpon>Chay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiNhanh.resx">
+      <DependentUpon>ChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangKy.resx">
       <DependentUpon>DangKy.cs</DependentUpon>

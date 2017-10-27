@@ -96,5 +96,11 @@ namespace QLQuanAn
         {
             MessageBox.Show("Thành Công");
         }
+
+        private void tsbChiNhanh_Click(object sender, EventArgs e)
+        {
+            ChiNhanh cn = new ChiNhanh();
+            cn.ShowDialog();
+        }
     }
 }

@@ -54,6 +54,7 @@
             this.Store = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tsbChiNhanh = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,7 +67,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
             this.toolStripLabel1,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.tsbChiNhanh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(843, 25);
@@ -88,13 +90,13 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -317,6 +319,16 @@
             this.comboBox1.Size = new System.Drawing.Size(185, 21);
             this.comboBox1.TabIndex = 8;
             // 
+            // tsbChiNhanh
+            // 
+            this.tsbChiNhanh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbChiNhanh.Image = ((System.Drawing.Image)(resources.GetObject("tsbChiNhanh.Image")));
+            this.tsbChiNhanh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbChiNhanh.Name = "tsbChiNhanh";
+            this.tsbChiNhanh.Size = new System.Drawing.Size(68, 22);
+            this.tsbChiNhanh.Text = "Chi Nhánh";
+            this.tsbChiNhanh.Click += new System.EventHandler(this.tsbChiNhanh_Click);
+            // 
             // TongDai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,5 +377,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView Store;
+        private System.Windows.Forms.ToolStripButton tsbChiNhanh;
     }
 }

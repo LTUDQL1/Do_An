@@ -264,3 +264,116 @@ add
 	constraint FK_CT_DONHANG
 	foreign key(MaDonHang)
 	references DON_HANG(MaDonHang)
+
+
+--INSERT INTO dbo.NHAN_VIEN
+--        ( MaNV ,
+--          MaCN ,
+--          HoTen ,
+--          GioiTinh ,
+--          DienThoai ,
+--          DiaChi ,
+--          NgaySinh ,
+--          TaiKhoan ,
+--          MatKhau
+--        )
+--VALUES  ( '001' , -- MaNV - char(10)
+--          'CN1' , -- MaCN - char(10)
+--          N'Lê Sỹ Hoàng' , -- HoTen - nvarchar(50)
+--          'Nam' , -- GioiTinh - char(5)
+--          01212121 , -- DienThoai - int
+--          N'77/7 đường Số 7' , -- DiaChi - nvarchar(100)
+--          '1994/09/04' , -- NgaySinh - datetime
+--          'shle001' , -- TaiKhoan - char(10)
+--          '1'  -- MatKhau - char(10)
+--        ),
+--		( '002' , -- MaNV - char(10)
+--          'CN1' , -- MaCN - char(10)
+--          N'Nguyễn Lê Huy Hoàng' , -- HoTen - nvarchar(50)
+--          'Nam' , -- GioiTinh - char(5)
+--          01212222 , -- DienThoai - int
+--          N'6/9 đường Số 69' , -- DiaChi - nvarchar(100)
+--          '1969/06/09' , -- NgaySinh - datetime
+--          'hhnguyen002' , -- TaiKhoan - char(10)
+--          '1'  -- MatKhau - char(10)
+--        )
+--GO
+
+--INSERT INTO dbo.CHI_NHANH
+--        ( MaCN ,
+--          TenCN ,
+--          SoLuongBan ,
+--          ThongTinBan ,
+--          DiaChi ,
+--          TinhThanh ,
+--          SoDienT
+--        )
+--VALUES  ( 'CN1' , -- MaCN - char(10)
+--          N'Chi nhánh 1' , -- TenCN - nvarchar(50)
+--          20 , -- SoLuongBan - int
+--          'Không có' , -- ThongTinBan - char(10)
+--          N'1 đường số 1' , -- DiaChi - nvarchar(100)
+--          N'Sài Gòn' , -- TinhThanh - nvarchar(50)
+--          '0232323232'  -- SoDienT - char(15)
+--        )
+--GO
+
+--INSERT INTO dbo.DANH_MUC_CHI_NHANH
+--        ( MaDMCN, TenDMCN, MaCN )
+--VALUES  ( '1', -- MaDMCN - char(10)
+--          N'Khu vực Sài Gòn', -- TenDMCN - nvarchar(50)
+--          'CN1'  -- MaCN - char(10)
+--          )
+--GO
+
+
+
+
+--INSERT INTO dbo.MON_AN
+--        ( MaMA ,
+--          TenMA ,
+--          DonGia ,
+--          ThongTin ,
+--          Loai ,
+--          MaCN
+--        )
+--VALUES  ( 'BX' , -- MaMA - char(10)
+--          N'Bò Xào' , -- TenMA - nvarchar(50)
+--          100000 , -- DonGia - int
+--          N'không có' , -- ThongTin - nvarchar(100)
+--          N'Đồ ăn' , -- Loai - nvarchar(50)
+--          'CN1'  -- MaCN - char(10)
+--        ),
+--		( 'BN' , -- MaMA - char(10)
+--          N'Bò Né' , -- TenMA - nvarchar(50)
+--          150000 , -- DonGia - int
+--          N'không có' , -- ThongTin - nvarchar(100)
+--          N'Đồ ăn' , -- Loai - nvarchar(50)
+--          'CN1'  -- MaCN - char(10)
+--        ),
+--		( 'GN' , -- MaMA - char(10)
+--          N'Gà nướng' , -- TenMA - nvarchar(50)
+--          250000 , -- DonGia - int
+--          N'không có' , -- ThongTin - nvarchar(100)
+--          N'Đồ ăn' , -- Loai - nvarchar(50)
+--          'CN1'  -- MaCN - char(10)
+--        ),
+--		( 'CK' , -- MaMA - char(10)
+--          N'Coke' , -- TenMA - nvarchar(50)
+--          150000 , -- DonGia - int
+--          N'không có' , -- ThongTin - nvarchar(100)
+--          N'Giải khát' , -- Loai - nvarchar(50)
+--          'CN1'  -- MaCN - char(10)
+--        )
+--GO
+
+--INSERT INTO dbo.DANH_MUC_MON_AN
+--        ( MaDMMA, TenDMMA, MaMA )
+--VALUES  ( 'B01', -- MaDMMA - char(10)
+--          N'Bò', -- TenDMMA - nvarchar(50)
+--          'BX'  -- MaMA - char(10)
+--          ),
+--		  ( 'B01', -- MaDMMA - char(10)
+--          N'Bò', -- TenDMMA - nvarchar(50)
+--          'BN'  -- MaMA - char(10)
+--          )

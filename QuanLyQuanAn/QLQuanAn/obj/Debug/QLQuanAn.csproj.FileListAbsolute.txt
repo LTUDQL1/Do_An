@@ -98,3 +98,4 @@ C:\Users\Hoang\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.c
 C:\Users\Hoang\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.csproj.CoreCompileInputs.cache
 C:\Users\Hoang\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.exe
 C:\Users\Hoang\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.pdb
+C:\Users\Hoang\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.ChiNhanh.resources
