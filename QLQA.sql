@@ -16,20 +16,17 @@ Create table MON_AN
 	DonGia int,
 	ThongTin nvarchar(100),
 	Loai nvarchar(50), -- 'Food' || 'Drink' || 'Dessert' || '...'
-
+	MaCN char(10),
+	MaDMMA char(10),
 	Constraint PK_MON_AN
 	primary key(MaMA),
-)
-alter table MON_AN
-add MaCN char(10)
+) 
 Create table CHI_NHANH
 (
 	MaCN char(10) NOT NULL,
 	TenCN nvarchar(50),
 	SoLuongBan int,
-	ThongTinBan char(10), -- 'Trống' || 'Có Khách'
 	DiaChi nvarchar(100),
-	TinhThanh nvarchar(50),
 	SoDienT char(15),
 
 	Constraint PK_CHI_NHANH
@@ -57,8 +54,6 @@ Create table DAT_HANG
 	Constraint PK_DAT_HANG
 	primary key(MaDH),
 )
-alter table DAT_HANG
-add MaDonHang char(10)
 Create table CHI_TIET_DAT_HANG
 (
 	MaDH char(10),
@@ -124,256 +119,205 @@ Create table BAO_CAO
 	Constraint PK_BAO_CAO
 	Primary Key(MaBC),
 )
-
+Create table DANH_MUC_MON_AN
+(
+	MaDMMA char(10) not null,
+	TenDMMA nvarchar(50),
+	constraint PK_DANH_MUC_MON_AN
+	primary key(MaDMMA),
+)
+create table DON_HANG
+(
+	MaDonHang char(10) not null,
+	MaDatHang char(10),
+	TenMonAn nvarchar(50),
+	SoLuong int,
+	DonGia int,
+	ThanhTien float
+	constraint pf_CT_DON_HANG
+	primary key(MaDonHang)
+)
+--Khóa Ngoại:
+--DAT_HANG - KHACH_HANG
 Alter table DAT_HANG
 ADD
 	Constraint FK_DATHANG_KHACHHANG
 	Foreign Key (SoDTKhachHang)
 	References KHACH_HANG(SoDienT)
 
+--DAT_HANG - NHAN_VIEN
 Alter table DAT_HANG
 ADD
 	Constraint FK_DATHANG_NHANVIEN
 	Foreign Key (MaNV)
 	References NHAN_VIEN(MaNV)
 
+--DAT_HANG - CHI_NHANH
 Alter table DAT_HANG
 ADD
 	Constraint FK_DATHANG_CHINHANH
 	Foreign Key (MaCN)
 	References CHI_NHANH(MaCN)
 
+--CHI_TIET_DAT_HANG - DAT_HANG
 Alter table CHI_TIET_DAT_HANG
 ADD
 	Constraint FK_CTDATHANG_DATHANG
 	Foreign Key (MaDH)
 	References DAT_HANG(MaDH)
 
+--CHI_TIET_DAT_HANG - MON_AN
 Alter table CHI_TIET_DAT_HANG
 ADD
 	Constraint FK_CTDATHANG_MONAN
 	Foreign Key (MaMA)
 	References MON_AN(MaMA)
 
+--GIAO_HANG - DAT_HANG
 Alter table GIAO_HANG
 ADD
 	Constraint FK_GIAOHANG_DATHANG
 	Foreign Key (MaDH)
 	References DAT_HANG(MaDH)
 
+--CHI_TIET_GIAO_HANG - GIAO_HANG
 Alter table CHI_TIET_GIAO_HANG
 ADD
 	Constraint FK_CTGIAOHANG_GIAOHANG
 	Foreign Key (MaGH)
 	References GIAO_HANG(MaGH)
 
+--CHI_TIET_GIAO_HANG - MON_AN
 Alter table CHI_TIET_GIAO_HANG
 ADD
 	Constraint FK_CTGIAOHANG_MONAN
 	Foreign Key (MaMA)
 	References MON_AN(MaMA)
 
+--BAO_CAO - NHAN_VIEN
 Alter table BAO_CAO
 ADD
 	Constraint FK_BAOCAO_NHANVIEN
 	Foreign Key (MaNV)
 	References NHAN_VIEN(MaNV)
 
+--BAO_CAO_TONG - NHAN_VIEN
 Alter table BAO_CAO_TONG
 ADD
 	Constraint FK_BAOCAOTONG_NHANVIEN
 	Foreign Key (MaNV)
 	References NHAN_VIEN(MaNV)
 
+--BAO_CAO_TONG - BAO_CAO
+Alter table BAO_CAO_TONG
+ADD
+	Constraint FK_BAOCAOTONG_BAOCAO
+	FOREIGN KEY (MaBC)
+	References BAO_CAO(MaBC)
+
+--BAO_CAO - CHI_NHANH
 Alter table BAO_CAO
 ADD
 	Constraint FK_BAOCAO_CHINHANH
 	Foreign Key (MaCN)
 	References CHI_NHANH(MaCN)
-Create table DANH_MUC_MON_AN
-(
-	MaDMMA char(10) not null,
-	TenDMMA nvarchar(50),
-	MaMA char(10),
-	constraint PK_DANH_MUC_MON_AN
-	primary key(MaDMMA),
-)
-create table DANH_MUC_CHI_NHANH
-(
-	MaDMCN char(10) not null,
-	TenDMCN nvarchar(50),
-	MaCN char(10),
-	constraint PK_DANH_MUC_CHI_NHANH
-	PRIMARY KEY(MaDMCN)
-)
 
-alter table DANH_MUC_MON_AN
+--DANH_MUC_MON_AN - MON_AN
+alter table MON_AN
 add
-	constraint FK_DANHMUC_MONAN_CHINHANH
-	foreign key(MaMA)
-	references MON_AN(MaMA)
-alter table DANH_MUC_CHI_NHANH
-add
-	constraint FK_DANHMUC_CHINHANH
-	foreign key(MaCN)
-	references CHI_NHANH(MaCN)
+	constraint FK_MONAN_DANMUC_CHINHANH
+	foreign key(MaDMMA)
+	references DANH_MUC_MON_AN(MaDMMA)
+
+--MON_AN - CHI_NHANH
 alter table MON_AN
 add
 	constraint FK_MONAN_CHINHANH
 	foreign key(MaCN)
 	references CHI_NHANH(MaCN)
 
-create table DON_HANG
-(
-	MaDonHang char(10) not null,
-	TenDH nvarchar(50),
-	MaCN char(10),
-	MaMA char(10),
-	constraint PK_DON_HANG
-	primary key(MaDonHang),
-)
+--DAT_HANG - DON_HANG
 alter table DON_HANG
-add MaNV char(10)
-alter table DAT_HANG
 add
 	constraint FK_DATHANG_DONHANG
-	foreign key (MaDonHang)
-	references DON_HANG(MaDonHang)
-alter table DON_HANG
-add 
-	constraint FK_DONHANG_MONAN
-	foreign key(MaMA)
-	references MON_AN(MaMA)
-alter table DON_HANG
-add 
-	constraint FK_DONHANG_CHINHANH
-	foreign key(MaCN)
-	references CHI_NHANH(MaCN)
-create table CHI_TIET_DON_HANG
-(
-	MaDonHang char(10),
-	TenMonAn nvarchar(50),
-	SoLuong int,
-	DonGia int,
-	TenNhanVien nvarchar(50)
-	constraint pf_CT_DON_HANG
-	primary key(MaDonHang)
-)
-alter table CHI_TIET_DON_HANG
-add
-	constraint FK_CT_DONHANG
-	foreign key(MaDonHang)
-	references DON_HANG(MaDonHang)
+	foreign key (MaDatHang)
+	references DAT_HANG(MaDH)
 
+--INSERT
 
---INSERT INTO dbo.NHAN_VIEN
---        ( MaNV ,
---          MaCN ,
---          HoTen ,
---          GioiTinh ,
---          DienThoai ,
---          DiaChi ,
---          NgaySinh ,
---          TaiKhoan ,
---          MatKhau
---        )
---VALUES  ( '001' , -- MaNV - char(10)
---          'CN1' , -- MaCN - char(10)
---          N'Lê Sỹ Hoàng' , -- HoTen - nvarchar(50)
---          'Nam' , -- GioiTinh - char(5)
---          01212121 , -- DienThoai - int
---          N'77/7 đường Số 7' , -- DiaChi - nvarchar(100)
---          '1994/09/04' , -- NgaySinh - datetime
---          'shle001' , -- TaiKhoan - char(10)
---          '1'  -- MatKhau - char(10)
---        ),
---		( '002' , -- MaNV - char(10)
---          'CN1' , -- MaCN - char(10)
---          N'Nguyễn Lê Huy Hoàng' , -- HoTen - nvarchar(50)
---          'Nam' , -- GioiTinh - char(5)
---          01212222 , -- DienThoai - int
---          N'6/9 đường Số 69' , -- DiaChi - nvarchar(100)
---          '1969/06/09' , -- NgaySinh - datetime
---          'hhnguyen002' , -- TaiKhoan - char(10)
---          '1'  -- MatKhau - char(10)
---        )
---GO
+INSERT INTO CHI_NHANH VALUES ('CN01',N'Chi nhánh 1',25,N'Vũ trụ 7','07712345678');
+INSERT INTO CHI_NHANH VALUES ('CN02',N'Chi nhánh 2',20,N'Vũ trụ 6','06698765432');
+INSERT INTO CHI_NHANH VALUES ('CN03',N'Chi nhánh 3',23,N'Vũ trụ 0','00012332123');
 
---INSERT INTO dbo.CHI_NHANH
---        ( MaCN ,
---          TenCN ,
---          SoLuongBan ,
---          ThongTinBan ,
---          DiaChi ,
---          TinhThanh ,
---          SoDienT
---        )
---VALUES  ( 'CN1' , -- MaCN - char(10)
---          N'Chi nhánh 1' , -- TenCN - nvarchar(50)
---          20 , -- SoLuongBan - int
---          'Không có' , -- ThongTinBan - char(10)
---          N'1 đường số 1' , -- DiaChi - nvarchar(100)
---          N'Sài Gòn' , -- TinhThanh - nvarchar(50)
---          '0232323232'  -- SoDienT - char(15)
---        )
---GO
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA01',N'Bò')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA02','Heo')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA03',N'Gà')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA04',N'Hải sản')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA05','Chay')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA06',N'Tráng miệng')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA07',N'Thức uống')
+INSERT INTO DANH_MUC_MON_AN VALUES ('DMMA08',N'Món thêm')
 
---INSERT INTO dbo.DANH_MUC_CHI_NHANH
---        ( MaDMCN, TenDMCN, MaCN )
---VALUES  ( '1', -- MaDMCN - char(10)
---          N'Khu vực Sài Gòn', -- TenDMCN - nvarchar(50)
---          'CN1'  -- MaCN - char(10)
---          )
---GO
+INSERT INTO MON_AN VALUES ('MA01',N'Nhất tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA02',N'Nhị tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA03',N'Tam tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA04',N'Tứ tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA05',N'Ngũ tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA06',N'Lục tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA07',N'Thất tinh cầu','1000000',N'1 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA08',N'7 Viên ngọc rồng','1000000',N'7 Viên','Dessert','CN01','DMMA01')
+INSERT INTO MON_AN VALUES ('MA09',N'Đậu thần','1000000',N'1 Hạt','Dessert','CN01','DMMA01')
 
+INSERT INTO NHAN_VIEN VALUES ('NV01','CN01',N'Nguyễn Công Hiệp','Nam',0909010203,N'Bình Thuận','02/15/1997','123456','123123')
+INSERT INTO NHAN_VIEN VALUES ('NV02','CN02',N'Nguyễn Đức Hoàng','Nam',0987654321,N'Cần Thơ','10/01/1997','hoang123','quick')
+INSERT INTO NHAN_VIEN VALUES ('NV03','CN02',N'Nguyễn Lê Huy Hoàng','Nam',01626389324,N'Bình Thuận','09/23/1993','sieunhan','yeuquai')
+INSERT INTO NHAN_VIEN VALUES ('NV04','CN03',N'Lê Sỹ Hoàng','Nam',0985274694,'TPHCM','11/15/1995','naruto','sasuke')
+INSERT INTO NHAN_VIEN VALUES ('NV05','CN03',N'Trương Thái Huy','Nam',01626181876,N'Bến Tre','08/12/1996','deptrai','thongminh')
 
+INSERT INTO KHACH_HANG VALUES ('01639871234',N'Trần Hoàng Văn','Quận 1')
+INSERT INTO KHACH_HANG VALUES ('0987654300',N'Nguyễn Đình Yên','Quận 8')
+INSERT INTO KHACH_HANG VALUES ('0987678987',N'Lý Hoàng Yến','Quận 3')
+INSERT INTO KHACH_HANG VALUES ('0990876567',N'Trương Vô Kỵ','Quận 5')
+INSERT INTO KHACH_HANG VALUES ('0987987001',N'Lê Lợi','Quận 4')
 
+INSERT INTO BAO_CAO VALUES ('BC01','NV01','CN01',20,3,N'Ngày')
+INSERT INTO BAO_CAO VALUES ('BC02','NV02','CN02',25,4,N'Ngày')
+INSERT INTO BAO_CAO VALUES ('BC03','NV03','CN02',19,3,N'Ngày')
+INSERT INTO BAO_CAO VALUES ('BC04','NV04','CN03',24,4,N'Ngày')
+INSERT INTO BAO_CAO VALUES ('BC05','NV05','CN03',28,4,N'Ngày')
 
---INSERT INTO dbo.MON_AN
---        ( MaMA ,
---          TenMA ,
---          DonGia ,
---          ThongTin ,
---          Loai ,
---          MaCN
---        )
---VALUES  ( 'BX' , -- MaMA - char(10)
---          N'Bò Xào' , -- TenMA - nvarchar(50)
---          100000 , -- DonGia - int
---          N'không có' , -- ThongTin - nvarchar(100)
---          N'Đồ ăn' , -- Loai - nvarchar(50)
---          'CN1'  -- MaCN - char(10)
---        ),
---		( 'BN' , -- MaMA - char(10)
---          N'Bò Né' , -- TenMA - nvarchar(50)
---          150000 , -- DonGia - int
---          N'không có' , -- ThongTin - nvarchar(100)
---          N'Đồ ăn' , -- Loai - nvarchar(50)
---          'CN1'  -- MaCN - char(10)
---        ),
---		( 'GN' , -- MaMA - char(10)
---          N'Gà nướng' , -- TenMA - nvarchar(50)
---          250000 , -- DonGia - int
---          N'không có' , -- ThongTin - nvarchar(100)
---          N'Đồ ăn' , -- Loai - nvarchar(50)
---          'CN1'  -- MaCN - char(10)
---        ),
---		( 'CK' , -- MaMA - char(10)
---          N'Coke' , -- TenMA - nvarchar(50)
---          150000 , -- DonGia - int
---          N'không có' , -- ThongTin - nvarchar(100)
---          N'Giải khát' , -- Loai - nvarchar(50)
---          'CN1'  -- MaCN - char(10)
---        )
---GO
+INSERT INTO BAO_CAO_TONG VALUES ('BC01','NV01',3,'3/20/2015')
+INSERT INTO BAO_CAO_TONG VALUES ('BC02','NV02',3,'3/20/2015')
+INSERT INTO BAO_CAO_TONG VALUES ('BC03','NV03',3,'3/20/2015')
+INSERT INTO BAO_CAO_TONG VALUES ('BC04','NV04',3,'3/20/2015')
+INSERT INTO BAO_CAO_TONG VALUES ('BC05','NV05',3,'3/20/2015')
 
---INSERT INTO dbo.DANH_MUC_MON_AN
---        ( MaDMMA, TenDMMA, MaMA )
---VALUES  ( 'B01', -- MaDMMA - char(10)
---          N'Bò', -- TenDMMA - nvarchar(50)
---          'BX'  -- MaMA - char(10)
---          ),
---		  ( 'B01', -- MaDMMA - char(10)
---          N'Bò', -- TenDMMA - nvarchar(50)
---          'BN'  -- MaMA - char(10)
---          )
+INSERT INTO DAT_HANG VALUES ('DH01','CN01','NV01','01639871234','12/26/2015',200000,N'Không')	
+INSERT INTO DAT_HANG VALUES ('DH02','CN01','NV01','0987987001','08/23/2015',300000,N'Không')	
+INSERT INTO DAT_HANG VALUES ('DH03','CN02','NV02','0990876567','05/25/2015',250000,N'Không')	
+INSERT INTO DAT_HANG VALUES ('DH04','CN03','NV04','0987678987','10/11/2015',200000,N'Không')	
+INSERT INTO DAT_HANG VALUES ('DH05','CN03','NV05','0987654300','04/08/2015',150000,N'Không')	
+
+INSERT INTO DON_HANG VALUES ('DonH01','DH01',N'Bò xào tơ',2,80000,160000)
+INSERT INTO DON_HANG VALUES ('DonH02','DH02',N'Gà kho xả',1,60000,60000)
+INSERT INTO DON_HANG VALUES ('DonH03','DH03',N'Bò xào tơ',3,80000,240000)
+INSERT INTO DON_HANG VALUES ('DonH04','DH04',N'Thịt heo chiền giòn',2,50000,100000)
+INSERT INTO DON_HANG VALUES ('DonH05','DH05',N'Hải sản chiên giòn',2,70000,140000)
+
+INSERT INTO CHI_TIET_DAT_HANG VALUES ('DH01','MA01',2,70000)
+INSERT INTO CHI_TIET_DAT_HANG VALUES ('DH02','MA02',2,70000)
+INSERT INTO CHI_TIET_DAT_HANG VALUES ('DH03','MA03',2,70000)
+INSERT INTO CHI_TIET_DAT_HANG VALUES ('DH04','MA04',2,70000)
+INSERT INTO CHI_TIET_DAT_HANG VALUES ('DH05','MA05',2,70000)
+
+INSERT INTO GIAO_HANG VALUES ('GH01','12/26/2015','DH01')
+INSERT INTO GIAO_HANG VALUES ('GH02','08/23/2015','DH02')
+INSERT INTO GIAO_HANG VALUES ('GH03','05/25/2015','DH03')
+INSERT INTO GIAO_HANG VALUES ('GH04','10/11/2015','DH04')
+INSERT INTO GIAO_HANG VALUES ('GH05','04/08/2015','DH05')
+
+INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH01','MA01',2)
+INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH02','MA02',2)
+INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH03','MA03',2)
+INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH04','MA04',2)
+INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH05','MA05',2)
