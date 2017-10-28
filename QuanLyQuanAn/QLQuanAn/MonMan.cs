@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QLQuanAn
 {
@@ -17,7 +18,7 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
-
+        
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -45,6 +46,15 @@ namespace QLQuanAn
         {
             Sua S = new Sua();
             S.Show();
+        }
+
+        private void DSMM_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DSMM.CurrentRow.Selected = true;
+            }
+            catch { }
         }
     }
 }

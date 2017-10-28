@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace QLQuanAn
 {
@@ -17,7 +19,20 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
+        SqlConnection con = new SqlConnection(@"Data Source=LYATUN\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
 
+        private void ketNoiCSDL()
+        {
+            con.Open();
+            string sql = "select * from MON_AN where Loai = 'Dessert'";
+            SqlCommand com = new SqlCommand(sql, con);
+            com.CommandType = CommandType.Text;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            con.Close();
+            DSMM.DataSource = dt;
+        }
         private void TrangMiengDS_Load(object sender, EventArgs e)
         {
             MM = new DataTable();
@@ -28,6 +43,7 @@ namespace QLQuanAn
 
             DSMM.DataSource = MM;
             DSMM.ReadOnly = false;
+            ketNoiCSDL();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,6 +61,15 @@ namespace QLQuanAn
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void DSMM_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DSMM.CurrentRow.Selected = true;
+            }
+            catch { }
         }
     }
 }

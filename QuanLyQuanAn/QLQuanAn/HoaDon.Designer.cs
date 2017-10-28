@@ -45,16 +45,19 @@
             // dgvHoaDon
             // 
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDon.Location = new System.Drawing.Point(2, 135);
+            this.dgvHoaDon.Location = new System.Drawing.Point(3, 166);
+            this.dgvHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvHoaDon.Name = "dgvHoaDon";
-            this.dgvHoaDon.Size = new System.Drawing.Size(426, 183);
+            this.dgvHoaDon.Size = new System.Drawing.Size(568, 225);
             this.dgvHoaDon.TabIndex = 0;
+            this.dgvHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellContentClick);
             // 
             // btnInHoaDon
             // 
-            this.btnInHoaDon.Location = new System.Drawing.Point(327, 9);
+            this.btnInHoaDon.Location = new System.Drawing.Point(436, 11);
+            this.btnInHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Size = new System.Drawing.Size(75, 23);
+            this.btnInHoaDon.Size = new System.Drawing.Size(100, 28);
             this.btnInHoaDon.TabIndex = 1;
             this.btnInHoaDon.Text = "In hóa đơn";
             this.btnInHoaDon.UseVisualStyleBackColor = true;
@@ -63,71 +66,78 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(165, 9);
+            this.label1.Location = new System.Drawing.Point(220, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 24);
+            this.label1.Size = new System.Drawing.Size(114, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Hóa Đơn";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 344);
+            this.label2.Location = new System.Drawing.Point(245, 423);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(80, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Thành tiền:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 54);
+            this.label3.Location = new System.Drawing.Point(16, 66);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
+            this.label3.Size = new System.Drawing.Size(155, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Tên người lập hóa đơn:";
             // 
             // lblSotien
             // 
             this.lblSotien.AutoSize = true;
-            this.lblSotien.Location = new System.Drawing.Point(252, 343);
+            this.lblSotien.Location = new System.Drawing.Point(336, 422);
+            this.lblSotien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSotien.Name = "lblSotien";
-            this.lblSotien.Size = new System.Drawing.Size(40, 13);
+            this.lblSotien.Size = new System.Drawing.Size(52, 17);
             this.lblSotien.TabIndex = 7;
             this.lblSotien.Text = "Số tiền";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(324, 54);
+            this.label4.Location = new System.Drawing.Point(432, 66);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(53, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Số bàn";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(324, 87);
+            this.label5.Location = new System.Drawing.Point(432, 107);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "Ngày giờ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 20);
+            this.label6.Location = new System.Drawing.Point(16, 25);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.Size = new System.Drawing.Size(81, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "Số hóa đơn";
             // 
             // HoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 378);
+            this.ClientSize = new System.Drawing.Size(572, 465);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -137,6 +147,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnInHoaDon);
             this.Controls.Add(this.dgvHoaDon);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "HoaDon";
             this.Text = "HoaDon";
             this.Load += new System.EventHandler(this.HoaDon_Load);
