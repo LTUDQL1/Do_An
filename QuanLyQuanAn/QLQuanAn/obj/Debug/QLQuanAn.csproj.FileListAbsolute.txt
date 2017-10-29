@@ -133,3 +133,6 @@ E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.TrangMiengDS.
 E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.UDQL.resources
 E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Sua.resources
 E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.csproj.GenerateResource.Cache
+C:\Users\Evans Ray Kyle\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\bin\Debug\QLQuanAn.exe.config
+C:\Users\Evans Ray Kyle\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.exe
+C:\Users\Evans Ray Kyle\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.pdb
