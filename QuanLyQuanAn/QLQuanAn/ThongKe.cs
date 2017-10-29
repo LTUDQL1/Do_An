@@ -17,11 +17,11 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=LYATUN\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
         private void ketNoiCSDL()
         {
             con.Open();
-            string sql = "select * from CHI_NHANH";
+            string sql = "select MaBC as 'Mã Báo Cáo', MaNV as 'Mã Nhân Viên', SoLuongDH as 'Số Lượng ĐH', TongDT as 'Tổng Doanh Thu', Ngay as 'Ngày' from BAO_CAO";
             SqlCommand com = new SqlCommand(sql, con);
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com);
@@ -32,14 +32,19 @@ namespace QLQuanAn
         }
         private void ThongKe_Load(object sender, EventArgs e)
         {
-            DataTable TK = new DataTable();
-            TK.Columns.Add("ID");
-            TK.Columns.Add("Mã NV");
-            TK.Columns.Add("Số Lượng ĐH");
-            TK.Columns.Add("Tổng DThu");
-            TK.Columns.Add("Chi Phí Phát Sinh Thêm");
-            DSTK.DataSource = TK;
-            DSTK.ReadOnly = true;
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from CHI_NHANH";
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                comboBox2.Items.Add(dr["TenCN"].ToString());
+            }
+            con.Close();
             ketNoiCSDL();
         }
 
@@ -50,6 +55,24 @@ namespace QLQuanAn
                 DSTK.CurrentRow.Selected = true;
             }
             catch { }
+        }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select B.MaBC as 'Mã Báo Cáo', B.MaNV as 'Mã Nhân Viên', B.SoLuongDH as 'Số Lượng ĐH', B.TongDT as 'Tổng Doanh Thu', B.Ngay as 'Ngày', C.SoDienT as 'DT' from BAO_CAO B, CHI_NHANH C Where B.MaCN = C.MaCN and C.TenCN = '" + comboBox2.SelectedItem.ToString() + "'";
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                label5.Text = dr["DT"].ToString();
+                DSTK.DataSource = dt;
+                DSTK.Columns[5].Visible = false;
+            }
+            con.Close();
         }
     }
 }

@@ -68,11 +68,17 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Salad = new System.Windows.Forms.Button();
+            this.Nuoc = new System.Windows.Forms.Button();
+            this.Dessert = new System.Windows.Forms.Button();
+            this.MonChay = new System.Windows.Forms.Button();
+            this.MonMan = new System.Windows.Forms.Button();
+            this.MaDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaDatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -288,6 +294,13 @@
             // 
             this.Store.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Store.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaDonHang,
+            this.MaDatHang,
+            this.TenMonAn,
+            this.SoLuong,
+            this.DonGia,
+            this.abc});
             this.Store.Location = new System.Drawing.Point(448, 34);
             this.Store.Name = "Store";
             this.Store.Size = new System.Drawing.Size(495, 303);
@@ -459,8 +472,8 @@
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(939, 415);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(969, 405);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "   QL Món Ăn   ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -478,70 +491,106 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.Salad);
+            this.panel2.Controls.Add(this.Nuoc);
+            this.panel2.Controls.Add(this.Dessert);
+            this.panel2.Controls.Add(this.MonChay);
+            this.panel2.Controls.Add(this.MonMan);
             this.panel2.Location = new System.Drawing.Point(8, 26);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(925, 366);
+            this.panel2.Size = new System.Drawing.Size(953, 366);
             this.panel2.TabIndex = 0;
             // 
-            // button1
+            // Salad
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(753, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 118);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Salad";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.Salad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salad.Location = new System.Drawing.Point(777, 18);
+            this.Salad.Name = "Salad";
+            this.Salad.Size = new System.Drawing.Size(138, 118);
+            this.Salad.TabIndex = 11;
+            this.Salad.Text = "Salad";
+            this.Salad.UseVisualStyleBackColor = true;
+            this.Salad.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // button8
+            // Nuoc
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(578, 18);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(138, 118);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Nước";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.Nuoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nuoc.Location = new System.Drawing.Point(594, 18);
+            this.Nuoc.Name = "Nuoc";
+            this.Nuoc.Size = new System.Drawing.Size(138, 118);
+            this.Nuoc.TabIndex = 10;
+            this.Nuoc.Text = "Nước";
+            this.Nuoc.UseVisualStyleBackColor = true;
+            this.Nuoc.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button7
+            // Dessert
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(397, 18);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(138, 118);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Tráng Miệng";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.Dessert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dessert.Location = new System.Drawing.Point(409, 18);
+            this.Dessert.Name = "Dessert";
+            this.Dessert.Size = new System.Drawing.Size(138, 118);
+            this.Dessert.TabIndex = 9;
+            this.Dessert.Text = "Tráng Miệng";
+            this.Dessert.UseVisualStyleBackColor = true;
+            this.Dessert.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button6
+            // MonChay
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(216, 18);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(138, 118);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Món Chay";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.MonChay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonChay.Location = new System.Drawing.Point(224, 18);
+            this.MonChay.Name = "MonChay";
+            this.MonChay.Size = new System.Drawing.Size(138, 118);
+            this.MonChay.TabIndex = 8;
+            this.MonChay.Text = "Món Chay";
+            this.MonChay.UseVisualStyleBackColor = true;
+            this.MonChay.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button5
+            // MonMan
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(28, 18);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(138, 118);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Món Mặn";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.MonMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MonMan.Location = new System.Drawing.Point(39, 18);
+            this.MonMan.Name = "MonMan";
+            this.MonMan.Size = new System.Drawing.Size(138, 118);
+            this.MonMan.TabIndex = 7;
+            this.MonMan.Text = "Món Mặn";
+            this.MonMan.UseVisualStyleBackColor = true;
+            this.MonMan.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // MaDonHang
+            // 
+            this.MaDonHang.DataPropertyName = "MaDonHang";
+            this.MaDonHang.HeaderText = "Mã ĐH";
+            this.MaDonHang.Name = "MaDonHang";
+            // 
+            // MaDatHang
+            // 
+            this.MaDatHang.DataPropertyName = "MaDatHang";
+            this.MaDatHang.HeaderText = "Mã Đặt Hàng";
+            this.MaDatHang.Name = "MaDatHang";
+            // 
+            // TenMonAn
+            // 
+            this.TenMonAn.DataPropertyName = "TenMonAn";
+            this.TenMonAn.HeaderText = "Tên Món";
+            this.TenMonAn.Name = "TenMonAn";
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn Giá ";
+            this.DonGia.Name = "DonGia";
+            // 
+            // abc
+            // 
+            this.abc.DataPropertyName = "TT";
+            this.abc.HeaderText = "Thành Tiền";
+            this.abc.Name = "abc";
             // 
             // UDQL
             // 
@@ -610,14 +659,20 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Salad;
+        private System.Windows.Forms.Button Nuoc;
+        private System.Windows.Forms.Button Dessert;
+        private System.Windows.Forms.Button MonChay;
+        private System.Windows.Forms.Button MonMan;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.DataGridView Store;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaDonHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaDatHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenMonAn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn abc;
 
 
 

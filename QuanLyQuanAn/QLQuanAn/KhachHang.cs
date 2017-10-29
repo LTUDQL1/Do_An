@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace QLQuanAn
 {
-    public partial class MenuBo : Form
+    public partial class KhachHang : Form
     {
-        public MenuBo()
+        public KhachHang()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Thành Công");
+            this.Hide();
         }
     }
 }

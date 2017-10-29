@@ -13,6 +13,7 @@ namespace QLQuanAn
 {
     public partial class TongDai : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
         DataTable DT;
         public TongDai()
         {
@@ -37,7 +38,19 @@ namespace QLQuanAn
 
             Store.DataSource = DT;
             Store.ReadOnly = false;
-            
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from CHI_NHANH";
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                comboBox1.Items.Add(dr["TenCN"].ToString());
+            }
+            con.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,7 +109,8 @@ namespace QLQuanAn
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Thành Công");
+            KhachHang A = new KhachHang();
+            A.Show();
         }
 
         private void tsbChiNhanh_Click(object sender, EventArgs e)

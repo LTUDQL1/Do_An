@@ -30,11 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnChiNhanhExit = new System.Windows.Forms.Button();
             this.TenCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnChiNhanhExit = new System.Windows.Forms.Button();
+            this.SoLuongB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -42,10 +43,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(3, 57);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(2, 46);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(534, 287);
+            this.panel1.Size = new System.Drawing.Size(457, 233);
             this.panel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -56,14 +56,34 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TenCN,
             this.DiaChi,
-            this.SoDienT});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.SoDienT,
+            this.SoLuongB});
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(526, 277);
+            this.dataGridView1.Size = new System.Drawing.Size(451, 225);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(137, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Thông Tin Chi Nhánh";
+            // 
+            // btnChiNhanhExit
+            // 
+            this.btnChiNhanhExit.Location = new System.Drawing.Point(203, 279);
+            this.btnChiNhanhExit.Name = "btnChiNhanhExit";
+            this.btnChiNhanhExit.Size = new System.Drawing.Size(80, 26);
+            this.btnChiNhanhExit.TabIndex = 2;
+            this.btnChiNhanhExit.Text = "Thoát";
+            this.btnChiNhanhExit.UseVisualStyleBackColor = true;
+            this.btnChiNhanhExit.Click += new System.EventHandler(this.btnChiNhanhExit_Click);
             // 
             // TenCN
             // 
@@ -83,40 +103,23 @@
             this.SoDienT.HeaderText = "Số Điện Thoại";
             this.SoDienT.Name = "SoDienT";
             // 
-            // label1
+            // SoLuongB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(87, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Thông Tin Chi Nhánh";
-            // 
-            // btnChiNhanhExit
-            // 
-            this.btnChiNhanhExit.Location = new System.Drawing.Point(309, 356);
-            this.btnChiNhanhExit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnChiNhanhExit.Name = "btnChiNhanhExit";
-            this.btnChiNhanhExit.Size = new System.Drawing.Size(100, 48);
-            this.btnChiNhanhExit.TabIndex = 2;
-            this.btnChiNhanhExit.Text = "Thoát";
-            this.btnChiNhanhExit.UseVisualStyleBackColor = true;
-            this.btnChiNhanhExit.Click += new System.EventHandler(this.btnChiNhanhExit_Click);
+            this.SoLuongB.DataPropertyName = "SoLuongBan";
+            this.SoLuongB.HeaderText = "Số Lượng Bàn";
+            this.SoLuongB.Name = "SoLuongB";
             // 
             // ChiNhanh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 418);
+            this.ClientSize = new System.Drawing.Size(458, 317);
             this.Controls.Add(this.btnChiNhanhExit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChiNhanh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChiNhanh";
+            this.Text = "Chi Nhánh";
             this.Load += new System.EventHandler(this.ChiNhanh_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -134,5 +137,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenCN;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongB;
     }
 }

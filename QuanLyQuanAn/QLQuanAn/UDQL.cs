@@ -19,11 +19,11 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=LYATUN\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
         private void ketNoiCSDL()
         {
             con.Open();
-            string sql = "select * from DON_HANG";
+            string sql = "select MaDonHang, MaDatHang, TenMonAn, SoLuong, DonGia, DonGia * SoLuong as 'TT' from DON_HANG";
             SqlCommand com = new SqlCommand(sql, con);
             com.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(com);
@@ -41,15 +41,6 @@ namespace QLQuanAn
         private void UDQL_Load(object sender, EventArgs e)
         {
             toolStrip2.Hide();
-            DT = new DataTable();
-            DT.Columns.Add("Stt");
-            DT.Columns.Add("Tên món ăn");
-            DT.Columns.Add("Số lượng");
-            DT.Columns.Add("Đơn Giá");
-            DT.Columns.Add("Thành Tiền");
-
-            Store.DataSource = DT;
-            Store.ReadOnly = false;
             ketNoiCSDL();
         }
 

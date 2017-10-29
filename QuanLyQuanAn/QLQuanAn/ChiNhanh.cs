@@ -17,7 +17,7 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=LYATUN\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
         private void ketNoiCSDL()
         {
             con.Open();
@@ -29,6 +29,7 @@ namespace QLQuanAn
             da.Fill(dt);
             con.Close();
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns[0].Visible = false;
         }
         
         private void ChiNhanh_Load(object sender, EventArgs e)
