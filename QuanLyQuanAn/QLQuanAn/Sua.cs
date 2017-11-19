@@ -21,5 +21,10 @@ namespace QLQuanAn
         {
             this.Hide();
         }
+
+        private void Sua_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,6 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //this.Hide();
@@ -27,6 +26,11 @@ namespace QLQuanAn
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

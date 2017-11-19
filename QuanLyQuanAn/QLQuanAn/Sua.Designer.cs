@@ -197,6 +197,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Sua";
             this.Text = "Sửa";
+            this.Load += new System.EventHandler(this.Sua_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

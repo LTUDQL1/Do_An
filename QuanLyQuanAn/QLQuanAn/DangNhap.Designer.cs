@@ -73,6 +73,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(103, 116);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 31);
@@ -107,6 +108,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DangNhap";
             this.Text = "Đăng Nhập";
+            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

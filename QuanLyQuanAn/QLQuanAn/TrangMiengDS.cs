@@ -14,28 +14,18 @@ namespace QLQuanAn
 {
     public partial class TrangMiengDS : Form
     {
-        DataTable MM;
+        DataTable TM;
+        DataView dvTM;
+
         public TrangMiengDS()
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
-
-        private void ketNoiCSDL()
-        {
-            con.Open();
-                        string sql = "select MaMA as 'Mã Món Ăn', TenMA as 'Tên Món Ăn', DonGia as 'Đơn Giá', ThongTin as 'Thông tin', MaCN as 'Mã Chi Nhánh', MaDMMA as 'Mã DMMA' from MON_AN where Loai = 'Dessert'";
-            SqlCommand com = new SqlCommand(sql, con);
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            DSMM.DataSource = dt;
-        }
         private void TrangMiengDS_Load(object sender, EventArgs e)
         {
-            ketNoiCSDL();
+            TM = XuLyDuLieu.docDuLieu("Select * From MON_AN where Loai = 'Dessert'");
+            dvTM = new DataView(TM);
+            DSMM.DataSource = dvTM;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -53,15 +43,6 @@ namespace QLQuanAn
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
-        }
-
-        private void DSMM_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DSMM.CurrentRow.Selected = true;
-            }
-            catch { }
         }
     }
 }

@@ -13,26 +13,16 @@ namespace QLQuanAn
 {
     public partial class Salad : Form
     {
+        DataTable dsSalad;
+
         public Salad()
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
-        private void ketNoiCSDL()
-        {
-            con.Open();
-            string sql = "select MaMA as 'Mã Món Ăn', TenMA as 'Tên Món Ăn', DonGia as 'Đơn Giá', ThongTin as 'Thông tin', MaCN as 'Mã Chi Nhánh', MaDMMA as 'Mã DMMA' from MON_AN where Loai = 'Salad'";
-            SqlCommand com = new SqlCommand(sql, con);
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            DSMM.DataSource = dt;
-        }
         private void Salad_Load(object sender, EventArgs e)
         {
-            ketNoiCSDL();
+            dsSalad = XuLyDuLieu.docDuLieu("select * from MON_AN where Loai = 'Salad'");
+            DSMM.DataSource = dsSalad;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,6 +40,11 @@ namespace QLQuanAn
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

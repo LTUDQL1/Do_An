@@ -122,6 +122,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "TrangMieng";
             this.Text = "Tráng Miệng";
+            this.Load += new System.EventHandler(this.TrangMieng_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);

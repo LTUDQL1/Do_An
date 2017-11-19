@@ -71,6 +71,8 @@
             this.DSTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DSTK.Location = new System.Drawing.Point(15, 46);
             this.DSTK.Name = "DSTK";
+            this.DSTK.ReadOnly = true;
+            this.DSTK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DSTK.Size = new System.Drawing.Size(563, 285);
             this.DSTK.TabIndex = 12;
             this.DSTK.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DSTK_CellContentClick);

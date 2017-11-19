@@ -13,28 +13,16 @@ namespace QLQuanAn
 {
     public partial class ChiNhanh : Form
     {
+        DataTable dsCN;
         public ChiNhanh()
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
-        private void ketNoiCSDL()
-        {
-            con.Open();
-            string sql = "select * from CHI_NHANH";
-            SqlCommand com = new SqlCommand(sql, con);
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns[0].Visible = false;
-        }
-        
         private void ChiNhanh_Load(object sender, EventArgs e)
         {
-            ketNoiCSDL();
+            dsCN = XuLyDuLieu.docDuLieu("select * from CHI_NHANH");
+            dataGridView1.DataSource = dsCN;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void btnChiNhanhExit_Click(object sender, EventArgs e)

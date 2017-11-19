@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnChiNhanhExit = new System.Windows.Forms.Button();
             this.TenCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoDienT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuongB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnChiNhanhExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,10 +60,40 @@
             this.SoLuongB});
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(451, 225);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // TenCN
+            // 
+            this.TenCN.DataPropertyName = "TenCN";
+            this.TenCN.HeaderText = "Chi Nhánh";
+            this.TenCN.Name = "TenCN";
+            this.TenCN.ReadOnly = true;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.DataPropertyName = "DiaChi";
+            this.DiaChi.HeaderText = "Địa Chỉ";
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.ReadOnly = true;
+            // 
+            // SoDienT
+            // 
+            this.SoDienT.DataPropertyName = "SoDienT";
+            this.SoDienT.HeaderText = "Số Điện Thoại";
+            this.SoDienT.Name = "SoDienT";
+            this.SoDienT.ReadOnly = true;
+            // 
+            // SoLuongB
+            // 
+            this.SoLuongB.DataPropertyName = "SoLuongBan";
+            this.SoLuongB.HeaderText = "Số Lượng Bàn";
+            this.SoLuongB.Name = "SoLuongB";
+            this.SoLuongB.ReadOnly = true;
             // 
             // label1
             // 
@@ -84,30 +114,6 @@
             this.btnChiNhanhExit.Text = "Thoát";
             this.btnChiNhanhExit.UseVisualStyleBackColor = true;
             this.btnChiNhanhExit.Click += new System.EventHandler(this.btnChiNhanhExit_Click);
-            // 
-            // TenCN
-            // 
-            this.TenCN.DataPropertyName = "TenCN";
-            this.TenCN.HeaderText = "Chi Nhánh";
-            this.TenCN.Name = "TenCN";
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa Chỉ";
-            this.DiaChi.Name = "DiaChi";
-            // 
-            // SoDienT
-            // 
-            this.SoDienT.DataPropertyName = "SoDienT";
-            this.SoDienT.HeaderText = "Số Điện Thoại";
-            this.SoDienT.Name = "SoDienT";
-            // 
-            // SoLuongB
-            // 
-            this.SoLuongB.DataPropertyName = "SoLuongBan";
-            this.SoLuongB.HeaderText = "Số Lượng Bàn";
-            this.SoLuongB.Name = "SoLuongB";
             // 
             // ChiNhanh
             // 

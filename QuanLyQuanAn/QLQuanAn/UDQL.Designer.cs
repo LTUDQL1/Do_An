@@ -50,6 +50,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Store = new System.Windows.Forms.DataGridView();
+            this.MaDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaDatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button17 = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -73,12 +79,6 @@
             this.Dessert = new System.Windows.Forms.Button();
             this.MonChay = new System.Windows.Forms.Button();
             this.MonMan = new System.Windows.Forms.Button();
-            this.MaDonHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaDatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMonAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.abc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -303,9 +303,47 @@
             this.abc});
             this.Store.Location = new System.Drawing.Point(448, 34);
             this.Store.Name = "Store";
+            this.Store.ReadOnly = true;
+            this.Store.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Store.Size = new System.Drawing.Size(495, 303);
             this.Store.TabIndex = 11;
             this.Store.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Store_CellContentClick);
+            // 
+            // MaDonHang
+            // 
+            this.MaDonHang.DataPropertyName = "MaDonHang";
+            this.MaDonHang.HeaderText = "Mã ĐH";
+            this.MaDonHang.Name = "MaDonHang";
+            // 
+            // MaDatHang
+            // 
+            this.MaDatHang.DataPropertyName = "MaDatHang";
+            this.MaDatHang.HeaderText = "Mã Đặt Hàng";
+            this.MaDatHang.Name = "MaDatHang";
+            // 
+            // TenMonAn
+            // 
+            this.TenMonAn.DataPropertyName = "TenMonAn";
+            this.TenMonAn.HeaderText = "Tên Món";
+            this.TenMonAn.Name = "TenMonAn";
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.DataPropertyName = "SoLuong";
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            // 
+            // DonGia
+            // 
+            this.DonGia.DataPropertyName = "DonGia";
+            this.DonGia.HeaderText = "Đơn Giá ";
+            this.DonGia.Name = "DonGia";
+            // 
+            // abc
+            // 
+            this.abc.DataPropertyName = "TT";
+            this.abc.HeaderText = "Thành Tiền";
+            this.abc.Name = "abc";
             // 
             // button17
             // 
@@ -555,42 +593,6 @@
             this.MonMan.Text = "Món Mặn";
             this.MonMan.UseVisualStyleBackColor = true;
             this.MonMan.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // MaDonHang
-            // 
-            this.MaDonHang.DataPropertyName = "MaDonHang";
-            this.MaDonHang.HeaderText = "Mã ĐH";
-            this.MaDonHang.Name = "MaDonHang";
-            // 
-            // MaDatHang
-            // 
-            this.MaDatHang.DataPropertyName = "MaDatHang";
-            this.MaDatHang.HeaderText = "Mã Đặt Hàng";
-            this.MaDatHang.Name = "MaDatHang";
-            // 
-            // TenMonAn
-            // 
-            this.TenMonAn.DataPropertyName = "TenMonAn";
-            this.TenMonAn.HeaderText = "Tên Món";
-            this.TenMonAn.Name = "TenMonAn";
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.DataPropertyName = "SoLuong";
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            // 
-            // DonGia
-            // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn Giá ";
-            this.DonGia.Name = "DonGia";
-            // 
-            // abc
-            // 
-            this.abc.DataPropertyName = "TT";
-            this.abc.HeaderText = "Thành Tiền";
-            this.abc.Name = "abc";
             // 
             // UDQL
             // 

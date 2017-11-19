@@ -13,8 +13,8 @@ namespace QLQuanAn
 {
     public partial class TongDai : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
         DataTable DT;
+
         public TongDai()
         {
             InitializeComponent();
@@ -22,9 +22,9 @@ namespace QLQuanAn
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UDQL A = new UDQL();
-            A.Show();
             this.Hide();
+            UDQL U = new UDQL();
+            U.Show();
         }
        
         private void TongDai_Load(object sender, EventArgs e)
@@ -32,25 +32,18 @@ namespace QLQuanAn
             DT = new DataTable();
             DT.Columns.Add("Stt");
             DT.Columns.Add("Tên");
-            DT.Columns.Add("Đơn GIá");
+            DT.Columns.Add("Đơn Giá");
             DT.Columns.Add("Số Lượng");
             DT.Columns.Add("Thành Tiền");
 
             Store.DataSource = DT;
-            Store.ReadOnly = false;
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from CHI_NHANH";
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            Store.ReadOnly = true;
+            // ComboBox Tên Chi Nhánh
+            DT = XuLyDuLieu.docDuLieu("Select * From CHI_NHANH");
+            foreach (DataRow dr in DT.Rows)
             {
                 comboBox1.Items.Add(dr["TenCN"].ToString());
             }
-            con.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -117,11 +110,6 @@ namespace QLQuanAn
         {
             ChiNhanh cn = new ChiNhanh();
             cn.ShowDialog();
-        }
-
-        private void Store_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
     }
 }

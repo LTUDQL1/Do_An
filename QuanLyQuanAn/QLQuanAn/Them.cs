@@ -26,5 +26,10 @@ namespace QLQuanAn
         {
             this.Refresh();
         }
+
+        private void Them_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

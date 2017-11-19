@@ -305,9 +305,10 @@
             this.Store.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Store.Location = new System.Drawing.Point(326, 40);
             this.Store.Name = "Store";
+            this.Store.ReadOnly = true;
+            this.Store.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Store.Size = new System.Drawing.Size(514, 222);
             this.Store.TabIndex = 21;
-            this.Store.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Store_CellContentClick);
             // 
             // label1
             // 

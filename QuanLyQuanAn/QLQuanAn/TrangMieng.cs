@@ -21,5 +21,10 @@ namespace QLQuanAn
         {
             this.Hide();
         }
+
+        private void TrangMieng_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

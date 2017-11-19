@@ -20,8 +20,6 @@ namespace QLQuanAn
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TongDai A = new TongDai();
-            A.ShowDialog();
         }
     }
 }

@@ -13,35 +13,18 @@ namespace QLQuanAn
 {
     public partial class UDQL : Form
     {
-        DataTable DT;
         public static string username = string.Empty;
+        DataTable dsDonHang;
+       
         public UDQL()
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
-        private void ketNoiCSDL()
-        {
-            con.Open();
-            string sql = "select MaDonHang, MaDatHang, TenMonAn, SoLuong, DonGia, DonGia * SoLuong as 'TT' from DON_HANG";
-            SqlCommand com = new SqlCommand(sql, con);
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            Store.DataSource = dt;
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DangNhap A = new DangNhap();
-            A.Show();
-        }
-
         private void UDQL_Load(object sender, EventArgs e)
         {
             toolStrip2.Hide();
-            ketNoiCSDL();
+            dsDonHang = XuLyDuLieu.docDuLieu("Select * From DON_HANG");
+            Store.DataSource = dsDonHang;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -52,8 +35,11 @@ namespace QLQuanAn
             {
                 this.User.Text = username;
             }
-            toolStrip1.Hide();
-            toolStrip2.Show();
+            if (D.DialogResult == DialogResult.OK)
+            {
+                toolStrip1.Hide();
+                toolStrip2.Show();
+            }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -122,8 +108,13 @@ namespace QLQuanAn
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             MaTD A = new MaTD();
-            A.Show();
-            this.Hide();
+            A.ShowDialog();
+            if (A.DialogResult == DialogResult.OK)
+            {
+                TongDai T = new TongDai();
+                T.Show();
+                this.Hide();
+            }
         }
 
         private void button17_Click(object sender, EventArgs e)

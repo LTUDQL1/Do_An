@@ -47,6 +47,8 @@
             this.DSMM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DSMM.Location = new System.Drawing.Point(12, 32);
             this.DSMM.Name = "DSMM";
+            this.DSMM.ReadOnly = true;
+            this.DSMM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DSMM.Size = new System.Drawing.Size(602, 278);
             this.DSMM.TabIndex = 17;
             // 
@@ -59,6 +61,7 @@
             this.button9.TabIndex = 16;
             this.button9.Text = "Tìm";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button3
             // 

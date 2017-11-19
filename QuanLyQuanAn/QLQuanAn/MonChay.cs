@@ -14,23 +14,11 @@ namespace QLQuanAn
 {
     public partial class MonChay : Form
     {
+        DataTable dsMC;
+
         public MonChay()
         {
             InitializeComponent();
-        }
-        SqlConnection con = new SqlConnection(@"Data Source=ERK\SQLEXPRESS;Initial Catalog=QLQA;Integrated Security=True");
-
-        private void ketNoiCSDL()
-        {
-            con.Open();
-            string sql = "select MaMA as 'Mã Món Ăn', TenMA as 'Tên Món Ăn', DonGia as 'Đơn Giá', ThongTin as 'Thông tin', MaCN as 'Mã Chi Nhánh', MaDMMA as 'Mã DMMA' from MON_AN where Loai = 'MonChay'";
-            SqlCommand com = new SqlCommand(sql, con);
-            com.CommandType = CommandType.Text;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            con.Close();
-            DSMM.DataSource = dt;
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -39,7 +27,8 @@ namespace QLQuanAn
 
         private void MonChay_Load(object sender, EventArgs e)
         {
-            ketNoiCSDL();
+            dsMC = XuLyDuLieu.docDuLieu("Select * from MON_AN where Loai = 'MonChay'");
+            DSMM.DataSource = dsMC;
         }
 
         private void button2_Click(object sender, EventArgs e)
