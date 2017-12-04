@@ -25,6 +25,7 @@ namespace QLQuanAn
             toolStrip2.Hide();
             dsDonHang = XuLyDuLieu.docDuLieu("Select * From DON_HANG");
             Store.DataSource = dsDonHang;
+            tabPage1.Enabled = false;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -39,6 +40,7 @@ namespace QLQuanAn
             {
                 toolStrip1.Hide();
                 toolStrip2.Show();
+                tabPage1.Enabled = true;
             }
         }
 

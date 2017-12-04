@@ -122,7 +122,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(54, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(55, 22);
             this.toolStripButton1.Text = "Đăng Ký";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -314,36 +314,42 @@
             this.MaDonHang.DataPropertyName = "MaDonHang";
             this.MaDonHang.HeaderText = "Mã ĐH";
             this.MaDonHang.Name = "MaDonHang";
+            this.MaDonHang.ReadOnly = true;
             // 
             // MaDatHang
             // 
             this.MaDatHang.DataPropertyName = "MaDatHang";
             this.MaDatHang.HeaderText = "Mã Đặt Hàng";
             this.MaDatHang.Name = "MaDatHang";
+            this.MaDatHang.ReadOnly = true;
             // 
             // TenMonAn
             // 
             this.TenMonAn.DataPropertyName = "TenMonAn";
             this.TenMonAn.HeaderText = "Tên Món";
             this.TenMonAn.Name = "TenMonAn";
+            this.TenMonAn.ReadOnly = true;
             // 
             // SoLuong
             // 
             this.SoLuong.DataPropertyName = "SoLuong";
             this.SoLuong.HeaderText = "Số lượng";
             this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
             // 
             // DonGia
             // 
             this.DonGia.DataPropertyName = "DonGia";
             this.DonGia.HeaderText = "Đơn Giá ";
             this.DonGia.Name = "DonGia";
+            this.DonGia.ReadOnly = true;
             // 
             // abc
             // 
             this.abc.DataPropertyName = "TT";
             this.abc.HeaderText = "Thành Tiền";
             this.abc.Name = "abc";
+            this.abc.ReadOnly = true;
             // 
             // button17
             // 
