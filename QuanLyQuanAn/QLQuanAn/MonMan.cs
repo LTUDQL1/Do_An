@@ -14,7 +14,7 @@ namespace QLQuanAn
     public partial class MonMan : Form
     {
         DataTable dsMM;
-
+        DataTable dsCN;
         public MonMan()
         {
             InitializeComponent();
@@ -26,8 +26,9 @@ namespace QLQuanAn
         }
         private void MonMan_Load(object sender, EventArgs e)
         {
-            dsMM = XuLyDuLieu.docDuLieu("Select * from MON_AN where Loai = 'MonMan'");
-            DSMM.DataSource = dsMM;
+            loadDSChiNhanh();
+            loadDSMA();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -49,6 +50,23 @@ namespace QLQuanAn
                 DSMM.CurrentRow.Selected = true;
             }
             catch { }
+        }
+        private void loadDSMA()
+        {
+            dsMM = XuLyDuLieu.docDuLieu("Select * from MON_AN where Loai = 'MonMan' and MaCN like N'" + cbDSCN.SelectedValue + "'");
+            DSMM.DataSource = dsMM;
+        }
+        private void loadDSChiNhanh()
+        {
+            string str = "select * from CHI_NHANH";
+            dsCN = XuLyDuLieu.docDuLieu(str);
+            cbDSCN.DataSource = dsCN;
+            cbDSCN.ValueMember = "MaCN";
+            cbDSCN.DisplayMember = "TenCN";
+        }
+        private void cbDSCN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadDSMA();
         }
     }
 }
