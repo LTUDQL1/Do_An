@@ -58,6 +58,7 @@ namespace QLQuanAn
         }
         private void loadDSChiNhanh()
         {
+            
             string str = "select * from CHI_NHANH";
             dsCN = XuLyDuLieu.docDuLieu(str);
             cbDSCN.DataSource = dsCN;
