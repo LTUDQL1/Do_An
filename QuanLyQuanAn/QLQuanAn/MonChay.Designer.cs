@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.cbDSCN = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DSMM)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,11 +47,11 @@
             // DSMM
             // 
             this.DSMM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DSMM.Location = new System.Drawing.Point(12, 28);
+            this.DSMM.Location = new System.Drawing.Point(12, 46);
             this.DSMM.Name = "DSMM";
             this.DSMM.ReadOnly = true;
             this.DSMM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DSMM.Size = new System.Drawing.Size(602, 278);
+            this.DSMM.Size = new System.Drawing.Size(602, 260);
             this.DSMM.TabIndex = 17;
             // 
             // button9
@@ -132,11 +134,31 @@
             this.toolStripButton1.Text = "Quay Lại";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // cbDSCN
+            // 
+            this.cbDSCN.FormattingEnabled = true;
+            this.cbDSCN.Location = new System.Drawing.Point(493, 19);
+            this.cbDSCN.Name = "cbDSCN";
+            this.cbDSCN.Size = new System.Drawing.Size(121, 21);
+            this.cbDSCN.TabIndex = 18;
+            this.cbDSCN.SelectedIndexChanged += new System.EventHandler(this.cbDSCN_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(427, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Chi nhánh:";
+            // 
             // MonChay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 344);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbDSCN);
             this.Controls.Add(this.DSMM);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button3);
@@ -167,6 +189,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ComboBox cbDSCN;
+        private System.Windows.Forms.Label label1;
 
     }
 }

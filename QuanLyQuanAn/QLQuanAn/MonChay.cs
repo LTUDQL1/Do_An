@@ -15,7 +15,7 @@ namespace QLQuanAn
     public partial class MonChay : Form
     {
         DataTable dsMC;
-
+        DataTable dsCN;
         public MonChay()
         {
             InitializeComponent();
@@ -27,8 +27,8 @@ namespace QLQuanAn
 
         private void MonChay_Load(object sender, EventArgs e)
         {
-            dsMC = XuLyDuLieu.docDuLieu("Select * from MON_AN where Loai = 'MonChay'");
-            DSMM.DataSource = dsMC;
+            loadDSChiNhanh();
+            loadDSMA();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -41,6 +41,24 @@ namespace QLQuanAn
         {
             Sua S = new Sua();
             S.Show();
+        }
+        private void loadDSMA()
+        {
+            dsMC = XuLyDuLieu.docDuLieu("Select * from MON_AN ma,DANH_MUC_MON_AN dm where dm.MaDMMA = ma.MaDMMA and dm.TenDMMA = N'Món Chay' and ma.MaCN like N'" + cbDSCN.SelectedValue + "'");
+            DSMM.DataSource = dsMC;
+        }
+        private void loadDSChiNhanh()
+        {
+
+            string str = "select * from CHI_NHANH";
+            dsCN = XuLyDuLieu.docDuLieu(str);
+            cbDSCN.DataSource = dsCN;
+            cbDSCN.ValueMember = "MaCN";
+            cbDSCN.DisplayMember = "TenCN";
+        }
+        private void cbDSCN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadDSMA();
         }
     }
 }

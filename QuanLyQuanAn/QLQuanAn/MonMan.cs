@@ -53,7 +53,7 @@ namespace QLQuanAn
         }
         private void loadDSMA()
         {
-            dsMM = XuLyDuLieu.docDuLieu("Select * from MON_AN where Loai = 'MonMan' and MaCN like N'" + cbDSCN.SelectedValue + "'");
+            dsMM = XuLyDuLieu.docDuLieu("Select * from MON_AN ma,DANH_MUC_MON_AN dm where dm.MaDMMA = ma.MaDMMA and dm.TenDMMA = N'Món Mặn' and ma.MaCN like N'" + cbDSCN.SelectedValue + "'");
             DSMM.DataSource = dsMM;
         }
         private void loadDSChiNhanh()
