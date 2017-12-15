@@ -28,5 +28,15 @@ namespace QLQuanAn
             adapter.Update(dt);
             adapter.Dispose();
         }
+        public static bool kiemtratontai(string MAMA)
+        {
+            bool kq = false;
+            DataTable ds = docDuLieu("select * from MON_AN where MaMA ='" + MAMA+"'");
+            if(ds.Rows.Count>0)
+            {
+                kq = true;
+            }
+            return kq;
+        }
     }
 }
