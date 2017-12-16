@@ -116,6 +116,7 @@
             this.btCapNhat.TabIndex = 6;
             this.btCapNhat.Text = "Cập Nhật";
             this.btCapNhat.UseVisualStyleBackColor = true;
+            this.btCapNhat.Click += new System.EventHandler(this.btCapNhat_Click);
             // 
             // cbNu
             // 
@@ -244,6 +245,7 @@
             this.btXacNhan.TabIndex = 6;
             this.btXacNhan.Text = "Xác Nhận";
             this.btXacNhan.UseVisualStyleBackColor = true;
+            this.btXacNhan.Click += new System.EventHandler(this.btXacNhan_Click);
             // 
             // label9
             // 

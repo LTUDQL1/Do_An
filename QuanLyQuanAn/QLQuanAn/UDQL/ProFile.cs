@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace QLQuanAn
 {
@@ -38,6 +39,63 @@ namespace QLQuanAn
                     cbNu.CheckState = CheckState.Checked;
                 }
             }
+        }
+
+        private void btXacNhan_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(XuLyDuLieu.connectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DoiMatKhau", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@TaiKhoan", SqlDbType.Char));
+            cmd.Parameters.Add(new SqlParameter("@MatKhau", SqlDbType.Char));
+            cmd.Parameters.Add(new SqlParameter("@MatKhauMoi", SqlDbType.Char));
+
+            cmd.Parameters["@TaiKhoan"].Value = txtTaiKhoan.Text;
+            cmd.Parameters["@MatKhau"].Value = txtMKCu.Text;
+            cmd.Parameters["@MatKhauMoi"].Value = txtMKMoi.Text;
+
+            cmd.Parameters.Add("RETURN_VALUE", SqlDbType.Int).Direction = ParameterDirection.ReturnValue;
+            if (txtMKMoi.Text == txtXacNhanMK.Text)
+            {
+                cmd.ExecuteNonQuery();
+
+                int ReturnValueInt = Convert.ToInt32(cmd.Parameters["RETURN_VALUE"].Value);
+                if (ReturnValueInt == 1)
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công");
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Mật khẩu cũ không đúng");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Mật Khẩu Xác Nhận Không Đúng");
+            }
+            con.Close();
+        }
+
+        private void btCapNhat_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(XuLyDuLieu.connectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Info", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NVarChar));
+            cmd.Parameters.Add(new SqlParameter("@DienThoai", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@TaiKhoan", SqlDbType.Char));
+
+            cmd.Parameters["@DiaChi"].Value = txtDiaChi.Text;
+            cmd.Parameters["@DienThoai"].Value = txtSDT.Text;
+            cmd.Parameters["@TaiKhoan"].Value = txtTaiKhoan.Text;
+
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

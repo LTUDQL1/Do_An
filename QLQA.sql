@@ -286,4 +286,76 @@ INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH01','MA01',5)
 INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH02','MA03',2)
 INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH03','MA03',2)
 
-Select * From NHAN_VIEN Where TaiKhoan = 'hoang123'
+GO
+--Đăng Nhập
+CREATE PROCEDURE DangNhap
+	@TaiKhoan char(10),
+	@MatKhau char(10)
+AS
+BEGIN
+	IF(EXISTS(SELECT * FROM NHAN_VIEN WHERE @TaiKhoan = TaiKhoan AND @MatKhau = MatKhau))
+	BEGIN
+		RETURN 1
+	END
+	ELSE
+	BEGIN
+		RETURN 0
+	END
+END
+
+GO
+--Đăng Ký
+CREATE PROCEDURE DangKy
+	@MaCN char(10),
+	@HoTen nvarchar(50),
+	@GioiTinh char(3),
+	@DienThoai int,
+	@DiaChi nvarchar(100),
+	@NgaySinh datetime,
+	@TaiKhoan char(10),
+	@MatKhau char(10)
+AS
+BEGIN
+	IF(NOT EXISTS(SELECT * FROM NHAN_VIEN WHERE @TaiKhoan = TaiKhoan))
+	BEGIN
+		INSERT INTO NHAN_VIEN VALUES (@MaCN,@HoTen,@GioiTinh,@DienThoai,@DiaChi,@NgaySinh,@TaiKhoan,@MatKhau)
+		RETURN 1
+	END
+	ELSE
+	BEGIN
+		RETURN 0
+	END
+END
+
+GO
+--Đổi Mật Khẩu
+CREATE PROCEDURE DoiMatKhau
+	@TaiKhoan char(10),
+	@MatKhau char(10),
+	@MatKhauMoi char(10)
+AS
+BEGIN
+	IF(EXISTS(SELECT * FROM NHAN_VIEN WHERE @TaiKhoan = TaiKhoan AND @MatKhau = MatKhau))
+	BEGIN
+		UPDATE NHAN_VIEN
+		SET MatKhau = @MatKhauMoi
+		WHERE TaiKhoan = @TaiKhoan
+		RETURN 1
+	END
+	ELSE
+	BEGIN
+		RETURN 0
+	END
+END
+
+GO
+--Thay đổi thông tin
+CREATE PROCEDURE Info
+	@TaiKhoan char(10),
+	@DiaChi nvarchar(100),
+	@DienThoai int
+AS
+BEGIN
+	UPDATE NHAN_VIEN SET DiaChi = @DiaChi WHERE TaiKhoan = @TaiKhoan
+	UPDATE NHAN_VIEN SET DienThoai = @DienThoai WHERE TaiKhoan = @TaiKhoan
+END
