@@ -359,3 +359,9 @@ BEGIN
 	UPDATE NHAN_VIEN SET DiaChi = @DiaChi WHERE TaiKhoan = @TaiKhoan
 	UPDATE NHAN_VIEN SET DienThoai = @DienThoai WHERE TaiKhoan = @TaiKhoan
 END
+
+--**Store CN
+--Sửa CN
+GO 
+CREATE PROC SuaCN
+	

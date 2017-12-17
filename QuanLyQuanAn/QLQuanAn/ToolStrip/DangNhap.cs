@@ -51,5 +51,10 @@ namespace QLQuanAn
                 this.DialogResult = DialogResult.No;
             }
         }
+
+        private void DangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

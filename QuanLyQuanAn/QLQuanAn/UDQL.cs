@@ -20,6 +20,9 @@ namespace QLQuanAn
         DataView dv;
         DataTable dt;
 
+        DataTable dsChiNhanh;
+        DataTable dsBan;
+        DataView ds;
         public UDQL()
         {
             InitializeComponent();
@@ -80,6 +83,12 @@ namespace QLQuanAn
             dtDonHang = XuLyDuLieu.docDuLieu("Select D.MaDH, M.TenMA, M.DonGia, D.SoLuong From DON_HANG D, MON_AN M Where D.MaMA = M.MaMA and D.MaDH = " + Ma);
             dv = new DataView(dtDonHang);
             dgvGioHang.DataSource = dv;
+
+
+            dsChiNhanh = XuLyDuLieu.docDuLieu("Select * From Chi_Nhanh");
+            ds = new DataView(dsChiNhanh);
+            dgvChiNhanh.DataSource = ds;
+            
         }
 
         private void btMoi_Click(object sender, EventArgs e)
@@ -378,6 +387,130 @@ namespace QLQuanAn
         {
             Salad frm = new Salad();
             frm.Show();
+        }
+
+        
+        //QL Chi Nhánh
+
+        private void btSuaBan_Click_1(object sender, EventArgs e)
+        {
+            if (dgvBan.SelectedRows.Count > 0)
+            {
+                DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
+                dr[2] = this.tbTenBan.Text;
+                XuLyDuLieu.ghiDuLieu("BAN", dsBan);
+            }
+        }
+
+        private void dgvBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.tbTenBan.Text = this.dgvBan.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+ 
+        private void btThemBan_Click(object sender, EventArgs e)
+        {
+            DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
+            dr = dsBan.NewRow();
+            dr[1] = dr[0];
+            dr[2] = tbTenBan.Text;
+            dsBan.Rows.Add(dr);
+            XuLyDuLieu.ghiDuLieu("BAN", dsBan);
+        }
+
+       
+        private void btXoaBan_Click(object sender, EventArgs e)
+        {
+            if (dgvBan.SelectedRows.Count > 0)
+            {
+                DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
+                String noidung = String.Format("Anh/chi có muốn xóa bàn '{0}' không?", dr[2]);
+                DialogResult dlr = MessageBox.Show(noidung, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dlr == DialogResult.Yes)
+                {
+                    dr.Delete();
+                    XuLyDuLieu.ghiDuLieu("BAN", dsBan);
+                }
+            }
+        }
+
+        private void dgvGioHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvChiNhanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvChiNhanh_SelectionChanged_1(object sender, EventArgs e)
+        {
+            if (dgvChiNhanh.SelectedRows.Count > 0)
+            {
+                DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
+                this.txtMaCN.Text = dr[0].ToString();
+                this.txtTenCN.Text = dr[1].ToString();
+                this.txtSoLuongBanCN.Text = dr[2].ToString();
+                this.txtDiaChiCN.Text = dr[3].ToString();
+                this.txtSDTCN.Text = dr[4].ToString();
+                this.txtQuanLyCN.Text = dr[5].ToString();
+                XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+            }
+        }
+
+        private void btLamMoiCN_Click_1(object sender, EventArgs e)
+        {
+            this.txtMaCN.Text = "";
+            this.txtTenCN.Text = "";
+            this.txtSoLuongBanCN.Text = "";
+            this.txtDiaChiCN.Text = "";
+            this.txtSDTCN.Text = "";
+            this.txtQuanLyCN.Text = "";
+            
+        }
+
+        private void btSuaCN_Click(object sender, EventArgs e)
+        {
+            if (dgvChiNhanh.SelectedRows.Count > 0)
+            {
+                DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
+                dr[0] = this.txtMaCN.Text;
+                dr[1] = this.txtTenCN.Text;
+                dr[2] = this.txtSoLuongBanCN.Text;
+                dr[3] = this.txtDiaChiCN.Text;
+                dr[4] = this.txtSDTCN.Text;
+                dr[5] = this.txtQuanLyCN.Text;
+                XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+            }
+        }
+
+        private void btThemCN_Click(object sender, EventArgs e)
+        {
+            DataRow dr = dsChiNhanh.NewRow();
+            dr[0] = this.txtMaCN.Text;
+            dr[1] = this.txtTenCN.Text;
+            dr[2] = this.txtSoLuongBanCN.Text;
+            dr[3] = this.txtDiaChiCN.Text;
+            dr[4] = this.txtSDTCN.Text;
+            dr[5] = this.txtQuanLyCN.Text;
+            dsChiNhanh.Rows.Add(dr);
+            XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+        }
+
+        private void btXoaCN_Click_1(object sender, EventArgs e)
+        {
+            if (dgvChiNhanh.SelectedRows.Count > 0)
+            {
+                DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
+                String noidung = String.Format("Anh/chi có muốn xóa chi nhánh '{0}' không?", dr[1]);
+                DialogResult dlr = MessageBox.Show(noidung, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dlr == DialogResult.Yes)
+                {
+                    dr.Delete();
+                    XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+                }
+            }
         }
     }
 }
