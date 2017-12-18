@@ -32,6 +32,7 @@ namespace QLQuanAn
 
         private void btXacNhan_Click(object sender, EventArgs e)
         {
+
             dt = XuLyDuLieu.docDuLieu("Select MaCN From CHI_NHANH Where TenCN like N'" + txtChiNhanh.Text + "'");
             foreach (DataRow dr in dt.Rows)
             {

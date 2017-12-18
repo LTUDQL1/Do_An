@@ -42,6 +42,7 @@
             this.btXacNhan.TabIndex = 0;
             this.btXacNhan.Text = "Xác Nhận";
             this.btXacNhan.UseVisualStyleBackColor = true;
+            this.btXacNhan.Click += new System.EventHandler(this.btXacNhan_Click);
             // 
             // groupBox1
             // 
@@ -75,6 +76,7 @@
             this.Controls.Add(this.btXacNhan);
             this.Name = "GhiChu";
             this.Text = "Chi Chú";
+            this.Load += new System.EventHandler(this.GhiChu_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 

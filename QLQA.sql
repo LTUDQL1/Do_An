@@ -359,9 +359,37 @@ BEGIN
 	UPDATE NHAN_VIEN SET DiaChi = @DiaChi WHERE TaiKhoan = @TaiKhoan
 	UPDATE NHAN_VIEN SET DienThoai = @DienThoai WHERE TaiKhoan = @TaiKhoan
 END
-
+Go
+-- Cập nhật DAT_HANG
+Create Procedure proc_DATHANG
+	@MaDH int,
+	@MaKH int,
+	@GhiChu nvarchar(200)
+As
+Begin
+	If Exists(Select * From DAT_HANG Where MaDH = @MaDH)
+	Begin
+		Update DAT_HANG Set MaKH = @MaKH, GhiChu = @GhiChu Where MaDH = @MaDH
+	End
+End
+Go
+Create Procedure proc_DATHANGBAN
+	@MaBanC int,
+	@MaBan int
+As
+Begin
+	Update DAT_HANG Set MaBan = @MaBan Where MaBan = @MaBanC
+End
+Go
+-- Xóa DON_HANG
+Create Procedure proc_XoaDonHang
+	@MaDH int
+As
+Begin
+	If Exists(Select * From DON_HANG Where MaDonHang = @MaDH)
+	Begin
+		Delete DON_HANG Where MaDonHang = @MaDH
+	End	
+End
 --**Store CN
 --Sửa CN
-GO 
-CREATE PROC SuaCN
-	

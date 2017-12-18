@@ -124,12 +124,6 @@
     <Compile Include="QL Món Ăn\Salad.Designer.cs">
       <DependentUpon>Salad.cs</DependentUpon>
     </Compile>
-    <Compile Include="UDQL\Them.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UDQL\Them.Designer.cs">
-      <DependentUpon>Them.cs</DependentUpon>
-    </Compile>
     <Compile Include="ToolStrip\ThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,12 +147,6 @@
     </Compile>
     <Compile Include="UDQL.Designer.cs">
       <DependentUpon>UDQL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UDQL\Sua.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UDQL\Sua.Designer.cs">
-      <DependentUpon>Sua.cs</DependentUpon>
     </Compile>
     <Compile Include="XuLyDuLieu.cs" />
     <EmbeddedResource Include="UDQL\ChiNhanh.resx">
@@ -209,9 +197,6 @@
     <EmbeddedResource Include="QL Món Ăn\Salad.resx">
       <DependentUpon>Salad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UDQL\Them.resx">
-      <DependentUpon>Them.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ToolStrip\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,9 +208,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UDQL.resx">
       <DependentUpon>UDQL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UDQL\Sua.resx">
-      <DependentUpon>Sua.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

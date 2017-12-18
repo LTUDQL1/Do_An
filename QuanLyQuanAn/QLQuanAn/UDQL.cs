@@ -16,13 +16,15 @@ namespace QLQuanAn
         public static string TaiKhoan = string.Empty;
         public static string MaCN = string.Empty;
         public static int Ma;
+        public static int MaBan;
+        public static string MaNV = string.Empty;
         DataTable dtDonHang;
         DataView dv;
         DataTable dt;
-
         DataTable dsChiNhanh;
         DataTable dsBan;
         DataView ds;
+
         public UDQL()
         {
             InitializeComponent();
@@ -64,25 +66,70 @@ namespace QLQuanAn
             tp2.Enabled = false;
             tp3.Enabled = false;
         }
+
+        void Load_Ban()
+        {
+            dgvDSBan.Controls.Clear();
+            int i = 1;
+            int j = 1;
+            int z = 1;
+            int y = 1;
+            dt = XuLyDuLieu.docDuLieu("Select * From BAN Where MaCN = N'" + MaCN + "'");
+            foreach (DataRow dr in dt.Rows)
+            {
+                Button N = new Button();
+                N.Width = 60;
+                N.Height = 60;
+                N.Top = 10 * z;
+                N.Left = 10 * i;
+                N.BackColor = Color.Aqua;
+                //N.Name = "BT" + i;
+                N.Tag = string.Format("{0}", dr[0].ToString());
+                N.Text = dr[1].ToString();
+                this.dgvDSBan.Controls.Add(N);
+                N.Click += new EventHandler(Ban_Click);
+                N.DialogResult = DialogResult.OK;
+                i += 6;
+                j++;
+                if (j == 7 * y)
+                {
+                    y++;
+                    i = 1;
+                    j = 1;
+                    z = 7;
+                }
+            }
+        }
+
+        private void Ban_Click(object sender, EventArgs e)
+        {
+            MaBan = int.Parse(((Button)sender).Tag.ToString());
+            Form_Load();
+        }
+
         void Form_Load()
         {
-            dt = XuLyDuLieu.docDuLieu("Select N.HoTen, C.TenCN, C.MaCN From NHAN_VIEN N,CHI_NHANH C Where N.MaCN = C.MaCN and TaiKhoan = '" + TaiKhoan + "'");
+            dt = XuLyDuLieu.docDuLieu("Select N.HoTen, C.TenCN, C.MaCN, N.MaNV From NHAN_VIEN N,CHI_NHANH C Where N.MaCN = C.MaCN and TaiKhoan = '" + TaiKhoan + "'");
             foreach (DataRow dr in dt.Rows)
             {
                 txtTen.Text = dr[0].ToString();
+                HoaDon.HoTenNV = dr[0].ToString();
                 lbChiNhanh.Text = dr[1].ToString();
                 MaCN = dr[2].ToString();
+                MaNV = dr[3].ToString();
             }
             int M = 0;
-            dt = XuLyDuLieu.docDuLieu("Select * From DAT_HANG");
+            dt = XuLyDuLieu.docDuLieu("Select * From DAT_HANG Where MaBan = " + MaBan);
             foreach (DataRow dr in dt.Rows)
             {
                 M = int.Parse(dr[0].ToString());
             }
             Ma = M;
-            dtDonHang = XuLyDuLieu.docDuLieu("Select D.MaDH, M.TenMA, M.DonGia, D.SoLuong From DON_HANG D, MON_AN M Where D.MaMA = M.MaMA and D.MaDH = " + Ma);
+            dtDonHang = XuLyDuLieu.docDuLieu("Select D.MaDonHang, D.MaDH, M.TenMA, M.DonGia, D.SoLuong, M.DonGia * D.SoLuong as ThanhTien From DON_HANG D, MON_AN M, DAT_HANG DH Where D.MaDH = DH.MaDH and D.MaMA = M.MaMA and MaBan = " + MaBan);
             dv = new DataView(dtDonHang);
             dgvGioHang.DataSource = dv;
+            dgvGioHang.Columns[0].Visible = false;
+            dgvGioHang.Columns[1].Visible = false;
 
 
             dsChiNhanh = XuLyDuLieu.docDuLieu("Select * From Chi_Nhanh");
@@ -95,11 +142,11 @@ namespace QLQuanAn
         {
             dt = XuLyDuLieu.docDuLieu("Select * From DAT_HANG");
             DataRow dr = dt.NewRow();
-            dr[1] = DBNull.Value;
+            dr[1] = MaNV;
             dr[2] = DBNull.Value;
-            dr[3] = DBNull.Value;
-            dr[4] = DBNull.Value;
-            dr[5] = DBNull.Value;
+            dr[3] = MaCN;
+            dr[4] = MaBan;
+            dr[5] = DateTime.Now;
             dr[6] = DBNull.Value;
             dt.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("DAT_HANG", dt);
@@ -111,6 +158,7 @@ namespace QLQuanAn
             DangNhap DN = new DangNhap();
             DN.ShowDialog();
             Form_Load();
+            Load_Ban();
             if (DN.DialogResult == DialogResult.OK)
             {
                 tsMenu1.Hide();
@@ -347,16 +395,26 @@ namespace QLQuanAn
 
         private void btXacNhan_Click(object sender, EventArgs e)
         {
-            dt = XuLyDuLieu.docDuLieu("Select * From DAT_HANG");
-            DataRow dr = dt.NewRow();
-            dr[1] = DBNull.Value;
-            dr[2] = DBNull.Value;
-            dr[3] = MaCN;
-            dr[4] = DBNull.Value;
-            dr[5] = DateTime.Now;
-            dr[6] = DBNull.Value;
-            dt.Rows.Add(dr);
-            XuLyDuLieu.ghiDuLieu("DAT_HANG", dt);
+            HoaDon HD = new HoaDon();
+            HD.ShowDialog();
+            if (HD.DialogResult == DialogResult.OK)
+            {
+                SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("proc_DATHANGBAN", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MaBanC", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@MaBan", SqlDbType.Int));
+
+                cmd.Parameters["@MaBanC"].Value = UDQL.MaBan;
+                cmd.Parameters["@MaBan"].Value = DBNull.Value;
+
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                Form_Load();
+            }
         }
 
         private void MonMan_Click(object sender, EventArgs e)
@@ -434,16 +492,6 @@ namespace QLQuanAn
             }
         }
 
-        private void dgvGioHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvChiNhanh_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvChiNhanh_SelectionChanged_1(object sender, EventArgs e)
         {
             if (dgvChiNhanh.SelectedRows.Count > 0)
@@ -510,6 +558,25 @@ namespace QLQuanAn
                     dr.Delete();
                     XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
                 }
+            }
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            if (dgvGioHang.SelectedRows.Count > 0)
+            {
+                DataRow cn = ((DataRowView)dgvGioHang.SelectedRows[0].DataBoundItem).Row;
+
+                SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("proc_XoaDonHang", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MaDH", SqlDbType.Int));
+                cmd.Parameters["@MaDH"].Value = cn["MaDonHang"];
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                cn.Delete();
             }
         }
     }
