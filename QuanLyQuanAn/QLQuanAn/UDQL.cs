@@ -62,6 +62,9 @@ namespace QLQuanAn
 
         private void UDQL_Load(object sender, EventArgs e)
         {
+            btGhiChu.Enabled = false;
+            btMoi.Enabled = false;
+            pnMonAn.Enabled = false;
             Form_Load();
             tp2.Enabled = false;
             tp3.Enabled = false;
@@ -105,6 +108,8 @@ namespace QLQuanAn
         {
             MaBan = int.Parse(((Button)sender).Tag.ToString());
             Form_Load();
+            btMoi.Enabled = true;
+            btGhiChu.Enabled = true;
         }
 
         void Form_Load()
@@ -151,6 +156,7 @@ namespace QLQuanAn
             dt.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("DAT_HANG", dt);
             Form_Load();
+            pnMonAn.Enabled = true;
         }
 
         private void btDangNhap_Click(object sender, EventArgs e)
@@ -395,6 +401,7 @@ namespace QLQuanAn
 
         private void btXacNhan_Click(object sender, EventArgs e)
         {
+            pnMonAn.Enabled = false;
             HoaDon HD = new HoaDon();
             HD.ShowDialog();
             if (HD.DialogResult == DialogResult.OK)
@@ -414,6 +421,8 @@ namespace QLQuanAn
                 conn.Close();
 
                 Form_Load();
+                btGhiChu.Enabled = false;
+                btMoi.Enabled = false;
             }
         }
 
