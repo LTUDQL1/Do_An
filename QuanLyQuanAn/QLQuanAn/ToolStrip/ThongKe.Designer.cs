@@ -32,12 +32,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbSDT = new System.Windows.Forms.Label();
             this.dgvThongKe = new System.Windows.Forms.DataGridView();
-            this.cbbChiNhanh = new System.Windows.Forms.ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbbChiNhanh = new System.Windows.Forms.ComboBox();
             this.cbbThongKe = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
@@ -75,6 +75,9 @@
             // 
             // dgvThongKe
             // 
+            this.dgvThongKe.AllowUserToAddRows = false;
+            this.dgvThongKe.AllowUserToDeleteRows = false;
+            this.dgvThongKe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThongKe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -85,18 +88,10 @@
             this.dgvThongKe.Location = new System.Drawing.Point(15, 46);
             this.dgvThongKe.Name = "dgvThongKe";
             this.dgvThongKe.ReadOnly = true;
+            this.dgvThongKe.RowHeadersVisible = false;
             this.dgvThongKe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvThongKe.Size = new System.Drawing.Size(563, 285);
             this.dgvThongKe.TabIndex = 12;
-            // 
-            // cbbChiNhanh
-            // 
-            this.cbbChiNhanh.FormattingEnabled = true;
-            this.cbbChiNhanh.Location = new System.Drawing.Point(82, 12);
-            this.cbbChiNhanh.Name = "cbbChiNhanh";
-            this.cbbChiNhanh.Size = new System.Drawing.Size(124, 21);
-            this.cbbChiNhanh.TabIndex = 13;
-            this.cbbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbbChiNhanh_SelectedIndexChanged);
             // 
             // Column1
             // 
@@ -132,6 +127,15 @@
             this.Column5.HeaderText = "Thống Kê";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // cbbChiNhanh
+            // 
+            this.cbbChiNhanh.FormattingEnabled = true;
+            this.cbbChiNhanh.Location = new System.Drawing.Point(82, 12);
+            this.cbbChiNhanh.Name = "cbbChiNhanh";
+            this.cbbChiNhanh.Size = new System.Drawing.Size(124, 21);
+            this.cbbChiNhanh.TabIndex = 13;
+            this.cbbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cbbChiNhanh_SelectedIndexChanged);
             // 
             // cbbThongKe
             // 

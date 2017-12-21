@@ -110,7 +110,6 @@ Create Table DAT_HANG
 (
 	MaDH int Identity(1,1) not null,
 	MaNV int,
-	MaKH int,
 	MaCN char(10),
 	MaBan int,
 	NgayDH datetime,
@@ -119,6 +118,7 @@ Create Table DAT_HANG
 	Constraint PK_DAT_HANG
 	Primary Key(MaDH)
 )
+
 create table DON_HANG
 (
 	MaDonHang int Identity(1,1) not null,
@@ -144,11 +144,6 @@ Alter Table DAT_HANG
 Add Constraint FK_DATHANG_NHANVIEN
 Foreign Key(MaNV)
 References NHAN_VIEN(MaNV)
-
-Alter Table DAT_HANG
-Add Constraint FK_DATHANG_KHACHHANG
-Foreign Key(MaKH)
-References KHACH_HANG(MaKH)
 
 Alter Table DAT_HANG
 Add Constraint FK_DATHANG_CHINHANH
@@ -393,3 +388,29 @@ Begin
 End
 --**Store CN
 --Sửa CN
+GO
+
+Create Procedure proc_themDatHang
+	@maNV INT,
+	@maCN VARCHAR(10)
+As
+Begin
+	INSERT dbo.DAT_HANG
+	        ( MaNV, MaCN, MaBan, NgayDH, GhiChu )
+	VALUES  ( @maNV, -- MaNV - int
+	          @maCN, -- MaCN - char(10)
+	          NULL, -- MaBan - int
+	          GETDATE(), -- NgayDH - datetime
+	          N''  -- GhiChu - nvarchar(200)
+	          )	
+End
+GO
+
+Create Procedure proc_themDonHang
+	@maDH INT,
+	@maMA VARCHAR(10),
+	@soluong int
+As
+Begin
+	INSERT dbo.DON_HANG ( MaDH, MaMA, SoLuong ) VALUES (@maDH, @maMA, @soluong)
+End

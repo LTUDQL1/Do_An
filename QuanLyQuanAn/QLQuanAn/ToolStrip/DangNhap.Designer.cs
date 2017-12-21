@@ -62,6 +62,7 @@
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(163, 20);
             this.txtTaiKhoan.TabIndex = 2;
+            this.txtTaiKhoan.Text = "naruto";
             // 
             // txtMatKhau
             // 
@@ -70,6 +71,7 @@
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(163, 20);
             this.txtMatKhau.TabIndex = 3;
+            this.txtMatKhau.Text = "sasuke";
             // 
             // btDangNhap
             // 

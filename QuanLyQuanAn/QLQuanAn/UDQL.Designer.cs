@@ -71,6 +71,7 @@
             this.tp2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.THEM = new System.Windows.Forms.Button();
             this.Salad = new System.Windows.Forms.Button();
             this.Nuoc = new System.Windows.Forms.Button();
             this.Dessert = new System.Windows.Forms.Button();
@@ -107,7 +108,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.THEM = new System.Windows.Forms.Button();
             this.tsMenu1.SuspendLayout();
             this.tsMenu2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -568,6 +568,16 @@
             this.panel2.Size = new System.Drawing.Size(1001, 329);
             this.panel2.TabIndex = 0;
             // 
+            // THEM
+            // 
+            this.THEM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.THEM.Location = new System.Drawing.Point(556, 185);
+            this.THEM.Name = "THEM";
+            this.THEM.Size = new System.Drawing.Size(138, 118);
+            this.THEM.TabIndex = 12;
+            this.THEM.Text = "Thêm";
+            this.THEM.UseVisualStyleBackColor = true;
+            // 
             // Salad
             // 
             this.Salad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -938,16 +948,6 @@
             this.panel1.Size = new System.Drawing.Size(1025, 721);
             this.panel1.TabIndex = 2;
             // 
-            // THEM
-            // 
-            this.THEM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.THEM.Location = new System.Drawing.Point(556, 185);
-            this.THEM.Name = "THEM";
-            this.THEM.Size = new System.Drawing.Size(138, 118);
-            this.THEM.TabIndex = 12;
-            this.THEM.Text = "Thêm";
-            this.THEM.UseVisualStyleBackColor = true;
-            // 
             // UDQL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,6 +958,7 @@
             this.Controls.Add(this.tsMenu2);
             this.Controls.Add(this.tsMenu1);
             this.Name = "UDQL";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quán Ăn";
             this.Load += new System.EventHandler(this.UDQL_Load);
             this.tsMenu1.ResumeLayout(false);

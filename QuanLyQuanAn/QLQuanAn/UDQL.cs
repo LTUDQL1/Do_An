@@ -147,12 +147,12 @@ namespace QLQuanAn
         {
             dt = XuLyDuLieu.docDuLieu("Select * From DAT_HANG");
             DataRow dr = dt.NewRow();
-            dr[1] = MaNV;
-            dr[2] = DBNull.Value;
-            dr[3] = MaCN;
-            dr[4] = MaBan;
-            dr[5] = DateTime.Now;
-            dr[6] = DBNull.Value;
+            dr[0] = MaNV;
+            dr[1] = DBNull.Value;
+            dr[2] = MaCN;
+            dr[3] = MaBan;
+            dr[4] = DateTime.Now;
+            dr[5] = DBNull.Value;
             dt.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("DAT_HANG", dt);
             Form_Load();
