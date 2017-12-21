@@ -413,4 +413,7 @@ Create Procedure proc_themDonHang
 As
 Begin
 	INSERT dbo.DON_HANG ( MaDH, MaMA, SoLuong ) VALUES (@maDH, @maMA, @soluong)
-End
+END
+
+SELECT TenCN AS N'Tên Chi Nhánh', SoLuongBan AS N'Số Lượng Bàn', DiaChi AS N'Địa Chỉ', SoDienT AS N'Điện Thoại', QuanLy AS N'Quản Lý' FROM dbo.CHI_NHANH
+

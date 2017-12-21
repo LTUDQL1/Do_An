@@ -30,10 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvChiNhanh = new System.Windows.Forms.DataGridView();
-            this.TenCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.btThoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -52,47 +48,15 @@
             // 
             this.dgvChiNhanh.AllowUserToAddRows = false;
             this.dgvChiNhanh.AllowUserToDeleteRows = false;
+            this.dgvChiNhanh.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvChiNhanh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChiNhanh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenCN,
-            this.DiaChi,
-            this.SoDienT,
-            this.SoLuongB});
-            this.dgvChiNhanh.Location = new System.Drawing.Point(3, 3);
+            this.dgvChiNhanh.Location = new System.Drawing.Point(0, 3);
             this.dgvChiNhanh.Name = "dgvChiNhanh";
             this.dgvChiNhanh.ReadOnly = true;
             this.dgvChiNhanh.RowHeadersVisible = false;
             this.dgvChiNhanh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChiNhanh.Size = new System.Drawing.Size(451, 225);
+            this.dgvChiNhanh.Size = new System.Drawing.Size(454, 225);
             this.dgvChiNhanh.TabIndex = 0;
-            // 
-            // TenCN
-            // 
-            this.TenCN.DataPropertyName = "TenCN";
-            this.TenCN.HeaderText = "Chi Nhánh";
-            this.TenCN.Name = "TenCN";
-            this.TenCN.ReadOnly = true;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Địa Chỉ";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            // 
-            // SoDienT
-            // 
-            this.SoDienT.DataPropertyName = "SoDienT";
-            this.SoDienT.HeaderText = "Số Điện Thoại";
-            this.SoDienT.Name = "SoDienT";
-            this.SoDienT.ReadOnly = true;
-            // 
-            // SoLuongB
-            // 
-            this.SoLuongB.DataPropertyName = "SoLuongBan";
-            this.SoLuongB.HeaderText = "Số Lượng Bàn";
-            this.SoLuongB.Name = "SoLuongB";
-            this.SoLuongB.ReadOnly = true;
             // 
             // label1
             // 
@@ -106,12 +70,13 @@
             // 
             // btThoat
             // 
-            this.btThoat.Location = new System.Drawing.Point(203, 279);
+            this.btThoat.Location = new System.Drawing.Point(192, 280);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(80, 26);
             this.btThoat.TabIndex = 2;
             this.btThoat.Text = "Thoát";
             this.btThoat.UseVisualStyleBackColor = true;
+            this.btThoat.Click += new System.EventHandler(this.btThoat_Click);
             // 
             // ChiNhanh
             // 
@@ -137,9 +102,5 @@
         private System.Windows.Forms.DataGridView dgvChiNhanh;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btThoat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenCN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDienT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongB;
     }
 }

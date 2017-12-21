@@ -84,14 +84,15 @@
             // btNew
             // 
             this.btNew.Name = "btNew";
-            this.btNew.Size = new System.Drawing.Size(98, 22);
+            this.btNew.Size = new System.Drawing.Size(152, 22);
             this.btNew.Text = "New";
             // 
             // btExit
             // 
             this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(98, 22);
+            this.btExit.Size = new System.Drawing.Size(152, 22);
             this.btExit.Text = "Exit";
+            this.btExit.Click += new System.EventHandler(this.btExit_Click);
             // 
             // lbPhone
             // 
@@ -113,6 +114,7 @@
             this.btChiNhanh.Name = "btChiNhanh";
             this.btChiNhanh.Size = new System.Drawing.Size(68, 22);
             this.btChiNhanh.Text = "Chi Nhánh";
+            this.btChiNhanh.Click += new System.EventHandler(this.btChiNhanh_Click);
             // 
             // label3
             // 

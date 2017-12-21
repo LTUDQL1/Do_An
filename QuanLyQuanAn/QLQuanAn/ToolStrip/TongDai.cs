@@ -20,6 +20,8 @@ namespace QLQuanAn
             LoadChiNhanh();
         }
 
+
+
         void LoadDanhMucMonAn()
         {
             DataTable listDanhMuc = XuLyDuLieu.docDuLieu("SELECT DISTINCT Loai FROM dbo.MON_AN");
@@ -48,18 +50,22 @@ namespace QLQuanAn
             string tenDanhMuc = cbDanhMuc.Text;
             LoadMonAnTheoDanhMuc(tenDanhMuc);
         }
-
-        void themDatHang()
-        {
-            string maNV = UDQL.MaNV;
-            string maCN = cbChiNhanh.Text;
-
-            //INSERT dbo.DON_HANG(MaDH, MaMA, SoLuong) VALUES(@maDH, @maMA, @soluong)
-        }
+        
 
         private void btnThemMon_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btChiNhanh_Click(object sender, EventArgs e)
+        {
+            ChiNhanh frmChiNhanh = new ChiNhanh();
+            frmChiNhanh.Show();
         }
     }
 }
