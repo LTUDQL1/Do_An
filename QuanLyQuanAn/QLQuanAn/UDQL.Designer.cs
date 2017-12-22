@@ -158,7 +158,7 @@
             this.btDangKy.Image = ((System.Drawing.Image)(resources.GetObject("btDangKy.Image")));
             this.btDangKy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btDangKy.Name = "btDangKy";
-            this.btDangKy.Size = new System.Drawing.Size(54, 22);
+            this.btDangKy.Size = new System.Drawing.Size(55, 22);
             this.btDangKy.Text = "Đăng Ký";
             this.btDangKy.Click += new System.EventHandler(this.btDangKy_Click);
             // 
@@ -577,6 +577,7 @@
             this.THEM.TabIndex = 12;
             this.THEM.Text = "Thêm";
             this.THEM.UseVisualStyleBackColor = true;
+            this.THEM.Click += new System.EventHandler(this.THEM_Click);
             // 
             // Salad
             // 

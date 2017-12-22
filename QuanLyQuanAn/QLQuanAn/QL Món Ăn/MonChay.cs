@@ -24,6 +24,12 @@ namespace QLQuanAn
             cbbChiNhanh.SelectedIndexChanged += new EventHandler(cbbChiNhanh_SelectedIndexChanged);
             txtTimKiem.TextChanged += new EventHandler(txtTimKiem_TextChanged);
             dgvMonChay.SelectionChanged += new EventHandler(dgvMonMan_SelectionChanged);
+            txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(txtDonGia_keypress);
+        }
+        public void txtDonGia_keypress(object sender,KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
         public void loadDSMM()
         {

@@ -588,5 +588,11 @@ namespace QLQuanAn
                 cn.Delete();
             }
         }
+
+        private void THEM_Click(object sender, EventArgs e)
+        {
+            Them frm = new Them();
+            frm.Show();
+        }
     }
 }

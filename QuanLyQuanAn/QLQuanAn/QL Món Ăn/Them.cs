@@ -7,37 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-
 
 namespace QLQuanAn
 {
-    public partial class TrangMiengDS : Form
+    public partial class Them : Form
     {
-         DataTable dsMM;
+      DataTable dsMM;
         DataTable dsCN;
         DataView dvdsMM;
         static int dem = 1;
-        public TrangMiengDS()
+        public Them()
         {
             InitializeComponent();
             cbbChiNhanh.SelectedIndexChanged += new EventHandler(cbbChiNhanh_SelectedIndexChanged);
             txtTimKiem.TextChanged += new EventHandler(txtTimKiem_TextChanged);
-            dgvTrangMieng.SelectionChanged += new EventHandler(dgvMonMan_SelectionChanged);
+            dgvThem.SelectionChanged += new EventHandler(dgvMonMan_SelectionChanged);
             txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(txtDonGia_keypress);
+            
         }
-        public void txtDonGia_keypress(object sender, KeyPressEventArgs e)
+        public void txtDonGia_keypress(object sender,KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if(!char.IsControl(e.KeyChar)&& !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
+            }
         }
         public void loadDSMM()
         {
-            string str = "Select * from MON_AN where Loai = 'Dessert' and MaCN like N'%" + cbbChiNhanh.SelectedValue + "'";
+            string str = "Select * from MON_AN where Loai = 'Them' and MaCN like N'%"+cbbChiNhanh.SelectedValue+"'";
             dsMM = XuLyDuLieu.docDuLieu(str);
-            dgvTrangMieng.DataSource = dsMM;
-            dgvTrangMieng.Columns[0].Visible = false;
-            dgvTrangMieng.Columns[5].Visible = false;
+            dgvThem.DataSource = dsMM;
+            dgvThem.Columns[0].Visible = false;
+            dgvThem.Columns[5].Visible = false;
             
         }
 
@@ -45,7 +46,7 @@ namespace QLQuanAn
         {
             loadDSMM();
             loadDSChiNhanh();
-          
+            
         }
         private void loadDSChiNhanh()
         {
@@ -58,13 +59,12 @@ namespace QLQuanAn
         }
         private void dgvMonMan_SelectionChanged(object sender,EventArgs e)
         {
-            if (dgvTrangMieng.SelectedRows.Count > 0)
+            if (dgvThem.SelectedRows.Count > 0)
             {
-                DataRow cn = ((DataRowView)dgvTrangMieng.SelectedRows[0].DataBoundItem).Row;
+                DataRow cn = ((DataRowView)dgvThem.SelectedRows[0].DataBoundItem).Row;
                 txtTen.Text = cn[1].ToString();
                 txtDonGia.Text = cn[2].ToString();
                 txtThongTin.Text = cn[3].ToString();
-              
             }
         }
         private void cbbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace QLQuanAn
             {
                 dvdsMM.RowFilter = "TenMA like'%" + txtTimKiem.Text + "%'";
             }
-            dgvTrangMieng.DataSource = dvdsMM;
+            dgvThem.DataSource = dvdsMM;
 
         }
         
@@ -107,9 +107,8 @@ namespace QLQuanAn
             cn[0] = MaMA;
             cn[1] = txtTen.Text;
             cn[2] = txtDonGia.Text;
-
             cn[3] = txtThongTin.Text;
-            cn[4] = "Dessert";
+            cn[4] = "Them";
             cn[5] = cbbChiNhanh.SelectedValue;
             dsMM.Rows.Add(cn);
             XuLyDuLieu.ghiDuLieu("MON_AN", dsMM);
@@ -119,9 +118,9 @@ namespace QLQuanAn
         private void btXoa_Click(object sender, EventArgs e)
         {
            
-            if ( dgvTrangMieng.SelectedRows.Count > 0)
+            if ( dgvThem.SelectedRows.Count > 0)
             {
-                DataRow cn = ((DataRowView)dgvTrangMieng.SelectedRows[0].DataBoundItem).Row;
+                DataRow cn = ((DataRowView)dgvThem.SelectedRows[0].DataBoundItem).Row;
                 String noidung = String.Format("Anh/chi co muon xoa món '{0}' khong?", cn[1]);
                 DialogResult dr = MessageBox.Show(noidung, "Thong bao", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.Yes)
@@ -134,9 +133,9 @@ namespace QLQuanAn
 
         private void btSua_Click(object sender, EventArgs e)
         {
-           if(dgvTrangMieng.SelectedRows.Count >0)
+           if(dgvThem.SelectedRows.Count >0)
            {
-               DataRow cn = ((DataRowView)dgvTrangMieng.SelectedRows[0].DataBoundItem).Row;
+               DataRow cn = ((DataRowView)dgvThem.SelectedRows[0].DataBoundItem).Row;
                cn[1] = txtTen.Text;
                cn[2] = txtDonGia.Text;
                cn[3] = txtThongTin.Text;
