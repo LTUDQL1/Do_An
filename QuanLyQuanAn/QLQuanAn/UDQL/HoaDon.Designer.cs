@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btInHoaDon = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,15 +44,12 @@
             this.lbTenNV = new System.Windows.Forms.Label();
             this.lbTenBan = new System.Windows.Forms.Label();
             this.lbToDay = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvHoaDon
             // 
+            this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -58,9 +59,38 @@
             this.dgvHoaDon.Location = new System.Drawing.Point(12, 157);
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.ReadOnly = true;
+            this.dgvHoaDon.RowHeadersVisible = false;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoaDon.Size = new System.Drawing.Size(303, 183);
             this.dgvHoaDon.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "TenMA";
+            this.Column1.HeaderText = "Tên Món Ăn";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "DonGia";
+            this.Column2.HeaderText = "Đơn Giá";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "SoLuong";
+            this.Column3.HeaderText = "Số Lượng";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "ThanhTien";
+            this.Column4.HeaderText = "Thành Tiền";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // btInHoaDon
             // 
@@ -163,34 +193,6 @@
             this.lbToDay.Size = new System.Drawing.Size(39, 13);
             this.lbToDay.TabIndex = 14;
             this.lbToDay.Text = "ToDay";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "TenMA";
-            this.Column1.HeaderText = "Tên Món Ăn";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "DonGia";
-            this.Column2.HeaderText = "Đơn Giá";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "SoLuong";
-            this.Column3.HeaderText = "Số Lượng";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "ThanhTien";
-            this.Column4.HeaderText = "Thành Tiền";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // HoaDon
             // 

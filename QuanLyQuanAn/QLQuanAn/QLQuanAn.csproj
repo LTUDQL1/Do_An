@@ -44,10 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UDQL\ChiNhanh.cs">
+    <Compile Include="Tổng Đài\GiaoHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UDQL\ChiNhanh.Designer.cs">
+    <Compile Include="Tổng Đài\GiaoHang.Designer.cs">
+      <DependentUpon>GiaoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolStrip\ChiNhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolStrip\ChiNhanh.Designer.cs">
       <DependentUpon>ChiNhanh.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolStrip\DangKy.cs">
@@ -62,6 +68,12 @@
     <Compile Include="ToolStrip\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tổng Đài\dsKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tổng Đài\dsKhachHang.Designer.cs">
+      <DependentUpon>dsKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UDQL\GhiChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,10 +86,10 @@
     <Compile Include="UDQL\HoaDon.Designer.cs">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UDQL\KhachHang.cs">
+    <Compile Include="Tổng Đài\KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UDQL\KhachHang.Designer.cs">
+    <Compile Include="Tổng Đài\KhachHang.Designer.cs">
       <DependentUpon>KhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="UDQL\MaQL.cs">
@@ -86,10 +98,10 @@
     <Compile Include="UDQL\MaQL.Designer.cs">
       <DependentUpon>MaQL.cs</DependentUpon>
     </Compile>
-    <Compile Include="UDQL\MaTD.cs">
+    <Compile Include="Tổng Đài\MaTD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UDQL\MaTD.Designer.cs">
+    <Compile Include="Tổng Đài\MaTD.Designer.cs">
       <DependentUpon>MaTD.cs</DependentUpon>
     </Compile>
     <Compile Include="QL Món Ăn\MonChay.cs">
@@ -149,7 +161,10 @@
       <DependentUpon>UDQL.cs</DependentUpon>
     </Compile>
     <Compile Include="XuLyDuLieu.cs" />
-    <EmbeddedResource Include="UDQL\ChiNhanh.resx">
+    <EmbeddedResource Include="Tổng Đài\GiaoHang.resx">
+      <DependentUpon>GiaoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolStrip\ChiNhanh.resx">
       <DependentUpon>ChiNhanh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToolStrip\DangKy.resx">
@@ -158,19 +173,22 @@
     <EmbeddedResource Include="ToolStrip\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tổng Đài\dsKhachHang.resx">
+      <DependentUpon>dsKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UDQL\GhiChu.resx">
       <DependentUpon>GhiChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UDQL\HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UDQL\KhachHang.resx">
+    <EmbeddedResource Include="Tổng Đài\KhachHang.resx">
       <DependentUpon>KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UDQL\MaQL.resx">
       <DependentUpon>MaQL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UDQL\MaTD.resx">
+    <EmbeddedResource Include="Tổng Đài\MaTD.resx">
       <DependentUpon>MaTD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QL Món Ăn\MonChay.resx">

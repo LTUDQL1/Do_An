@@ -389,6 +389,7 @@
             // 
             // dgvGioHang
             // 
+            this.dgvGioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvGioHang.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGioHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -409,7 +410,6 @@
             this.Column1.HeaderText = "Tên Món Ăn";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 150;
             // 
             // Column3
             // 
@@ -933,7 +933,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(81, 11);
+            this.label11.Location = new System.Drawing.Point(142, 11);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(152, 16);
             this.label11.TabIndex = 63;

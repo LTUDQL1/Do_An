@@ -2,7 +2,7 @@
 GO
 If DB_ID('QLQA') IS NOT NULL
 Begin;
-	Drop Database QLQA;
+	Drop Database QLQA
 End;
 GO
 Create Database QLQA
@@ -63,7 +63,7 @@ Create Table BAN
 )
 Create table GIAO_HANG
 (
-	MaGH char(10) NOT NULL,
+	MaGH int Identity(1,1) NOT NULL,
 	NgayGH datetime,
 	MaDH int,
 
@@ -110,6 +110,7 @@ Create Table DAT_HANG
 (
 	MaDH int Identity(1,1) not null,
 	MaNV int,
+	MaKH int,
 	MaCN char(10),
 	MaBan int,
 	NgayDH datetime,
@@ -118,7 +119,6 @@ Create Table DAT_HANG
 	Constraint PK_DAT_HANG
 	Primary Key(MaDH)
 )
-
 create table DON_HANG
 (
 	MaDonHang int Identity(1,1) not null,
@@ -146,6 +146,11 @@ Foreign Key(MaNV)
 References NHAN_VIEN(MaNV)
 
 Alter Table DAT_HANG
+Add Constraint FK_DATHANG_KHACHHANG
+Foreign Key(MaKH)
+References KHACH_HANG(MaKH)
+
+Alter Table DAT_HANG
 Add Constraint FK_DATHANG_CHINHANH
 Foreign Key(MaCN)
 References CHI_NHANH(MaCN)
@@ -169,16 +174,6 @@ Alter Table NHAN_VIEN
 Add Constraint FK_NHANVIEN_CHINHANH
 Foreign Key(MaCN)
 References CHI_NHANH(MaCN)
-
-Alter Table CHI_TIET_GIAO_HANG
-Add Constraint FK_CHITIETGIAOHANG_MONAN
-Foreign Key(MaMA)
-References MON_AN(MaMA)
-
-Alter Table CHI_TIET_GIAO_HANG
-Add Constraint FK_CHITIETGIAOHANG_GIAOHANG
-Foreign Key(MaGH)
-References GIAO_HANG(MaGH)
 
 Alter Table GIAO_HANG
 Add Constraint FK_GIAOHANG_DATHANG
@@ -273,13 +268,9 @@ INSERT INTO DON_HANG VALUES (1,'MA03', 2)
 INSERT INTO DON_HANG VALUES (4,'MA02', 5)
 INSERT INTO DON_HANG VALUES (5,'MA17', 3)
 
-INSERT INTO GIAO_HANG VALUES ('GH01',GETDATE(),2)
-INSERT INTO GIAO_HANG VALUES ('GH02',GETDATE(),3)
-INSERT INTO GIAO_HANG VALUES ('GH03',GETDATE(),3)
-
-INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH01','MA01',5)
-INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH02','MA03',2)
-INSERT INTO CHI_TIET_GIAO_HANG VALUES ('GH03','MA03',2)
+INSERT INTO GIAO_HANG VALUES (GETDATE(),2)
+INSERT INTO GIAO_HANG VALUES (GETDATE(),3)
+INSERT INTO GIAO_HANG VALUES (GETDATE(),3)
 
 GO
 --Đăng Nhập
@@ -386,34 +377,34 @@ Begin
 		Delete DON_HANG Where MaDonHang = @MaDH
 	End	
 End
+Go
+-- Thêm DAT_HANG
+Create Procedure proc_IDAT_HANG
+	@MaNV int,
+	@MaKH int,
+	@MaCN char(10),
+	@MaBan int,
+	@NgayDH datetime,
+	@GhiChu nvarchar(200)
+As
+Begin
+	If Not Exists(Select * From DAT_HANG Where MaKH = @MaKH)
+	Begin
+		Insert Into DAT_HANG Values(@MaNV, @MaKH, @MaCN, @MaBan, @NgayDH, @GhiChu)
+	End
+End
+Go
+-- Xóa KHACH_HANG
+Create Procedure proc_DKHACH_HANG
+	@MaKH int
+As
+Begin
+	Declare @MaDH int
+	Select @MaDH = MaDH From DAT_HANG Where MaKH = @MaKH
+	Delete DON_HANG Where MaDH = @MaDH
+	Delete GIAO_HANG Where MaDH = @MaDH
+	Delete DAT_HANG Where MaKH = @MaKH
+	Delete KHACH_HANG Where MaKH = @MaKH
+End
 --**Store CN
 --Sửa CN
-GO
-
-Create Procedure proc_themDatHang
-	@maNV INT,
-	@maCN VARCHAR(10)
-As
-Begin
-	INSERT dbo.DAT_HANG
-	        ( MaNV, MaCN, MaBan, NgayDH, GhiChu )
-	VALUES  ( @maNV, -- MaNV - int
-	          @maCN, -- MaCN - char(10)
-	          NULL, -- MaBan - int
-	          GETDATE(), -- NgayDH - datetime
-	          N''  -- GhiChu - nvarchar(200)
-	          )	
-End
-GO
-
-Create Procedure proc_themDonHang
-	@maDH INT,
-	@maMA VARCHAR(10),
-	@soluong int
-As
-Begin
-	INSERT dbo.DON_HANG ( MaDH, MaMA, SoLuong ) VALUES (@maDH, @maMA, @soluong)
-END
-
-SELECT TenCN AS N'Tên Chi Nhánh', SoLuongBan AS N'Số Lượng Bàn', DiaChi AS N'Địa Chỉ', SoDienT AS N'Điện Thoại', QuanLy AS N'Quản Lý' FROM dbo.CHI_NHANH
-
