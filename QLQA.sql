@@ -417,27 +417,76 @@ CREATE PROC proc_XoaCN
 	@maCN CHAR(10)
 AS
 BEGIN
-	
-	IF EXISTS(SELECT TOP 1 1 FROM dbo.NHAN_VIEN nv, dbo.BAO_CAO bc, dbo.BAN b, dbo.DAT_HANG datH, dbo.DON_HANG donH,
-							 dbo.GIAO_HANG gh, dbo.MON_AN ma 
-			WHERE nv.MaCN = bc.MaCN AND bc.MaCN = b.MaCN AND b.MaCN = datH.MaCN AND datH.MaDH = donH.MaDH
-				AND donH.MaDH = gh.MaDH AND donH.MaMA = ma.MaMA AND ma.MaCN = @maCN)
-		BEGIN
-			DELETE dbo.NHAN_VIEN WHERE MaCN = @maCN
-			DELETE dbo.BAO_CAO WHERE MaCN = @maCN
-			DELETE dbo.BAN WHERE MaCN = @maCN
-			DELETE dbo.DAT_HANG WHERE MaCN = @maCN
-			DELETE dbo.MON_AN WHERE MaCN = @maCN
-		END 
-	DELETE dbo.CHI_NHANH WHERE MaCN = @maCN
+	If Exists(Select * From CHI_NHANH Where MaCN = @maCN)
+	Begin
+		Declare @MaMA Cursor
+		Set @MaMA = Cursor for select MaMA from MON_AN where MaCN = @maCN
+		Open @MaMA
+		Declare @M char(10)
+		fetch next from @MaMA Into @M
+		While @@FETCH_STATUS = 0
+		Begin
+			Delete DON_HANG Where MaMA = @M
+			fetch next from @MaMA Into @M
+		End
+		Close @MaMA
+		Deallocate @MaMA
+		Delete MON_AN Where MaCN = @maCN
+		Delete BAO_CAO Where MaCN = @maCN
+		Declare @MaDH Cursor
+		Set @MaDH = Cursor For Select MaDH From DAT_HANG Where MaCN = @maCN
+		Open @MaDH
+		Declare @MaD char(10)
+		Fetch Next From @MaDH Into @MaD
+		While @@FETCH_STATUS = 0
+		Begin
+			Delete HOA_DON Where MaDH = @MaD
+			Delete DON_HANG Where MaDH = @MaD
+			Delete GIAO_HANG Where MaDH = @MaD
+			Fetch Next From @MaDH Into @MaD
+		End
+		Close @MaDH
+		Deallocate @MaDH
+		Delete DAT_HANG Where MaCN = @maCN
+		Declare @MaNV Cursor
+		Set @MaNV = Cursor for Select MaNV From NHAN_VIEN Where MaCN = @maCN
+		open @MaNV
+		Declare @Ma char(10)
+		Fetch Next From @MaNV Into @Ma
+		While @@FETCH_STATUS = 0
+			Begin
+				Delete DAT_HANG Where MaNV = @Ma
+				Fetch Next From @MaNV Into @Ma
+			End
+		close @MaNV
+		deallocate @MaNV
+		Delete NHAN_VIEN Where MaCN = @maCN
+		Delete BAN Where MaCN = @maCN
+		Delete CHI_NHANH Where MaCN = @maCN
+	End
 END
 GO
-
 --Xóa Bàn
 GO
 CREATE PROC proc_XoaBan
-	@
+	@Ma int
 AS
 BEGIN
-
+	if Exists(Select * From BAN Where MaBan = @Ma)
+	Begin
+	Declare @MaDH Cursor
+		Set @MaDH = Cursor For Select MaDH From DAT_HANG Where MaBan = @Ma
+		Open @MaDH
+		Declare @MaD char(10)
+		Fetch Next From @MaDH Into @MaD
+		While @@FETCH_STATUS = 0
+		Begin
+			Delete GIAO_HANG Where MaDH = @MaD
+			Fetch Next From @MaDH Into @MaD
+		End
+		Close @MaDH
+		Deallocate @MaDH
+		Delete DAT_HANG Where MaBan = @Ma
+		Delete BAN Where MaBan = @Ma
+	End
 END

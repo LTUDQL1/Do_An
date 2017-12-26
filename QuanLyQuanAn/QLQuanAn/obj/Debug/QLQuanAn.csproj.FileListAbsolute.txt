@@ -190,3 +190,4 @@ C:\Users\mafsn\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.T
 C:\Users\mafsn\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.TrangMiengDS.resources
 C:\Users\mafsn\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.UDQL.resources
 C:\Users\mafsn\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.csproj.GenerateResource.Cache
+C:\Users\Evans Ray Kyle\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Them.resources

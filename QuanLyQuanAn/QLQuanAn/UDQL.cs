@@ -115,6 +115,7 @@ namespace QLQuanAn
             Form_Load();
             btMoi.Enabled = true;
             btGhiChu.Enabled = true;
+            pnMonAn.Enabled = false;
         }
 
         void Form_Load()
@@ -462,10 +463,6 @@ namespace QLQuanAn
             Salad frm = new Salad();
             frm.Show();
         }
-
-        
-        //QL Chi Nhánh
-
         private void btSuaBan_Click_1(object sender, EventArgs e)
         {
             if (dgvBan.SelectedRows.Count > 0)
@@ -479,11 +476,14 @@ namespace QLQuanAn
         }
         private void btThemBan_Click(object sender, EventArgs e)
         {
+            DataRow cn = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
             DataRow dr = dsBan.NewRow();
             dr[1] = this.txtTenBan.Text;
+            dr[2] = cn[0].ToString();
             dr[3] = this.cbTrangThai.Text;
             dsBan.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("BAN", dsBan);
+            Load_Ban();
         }
 
 
@@ -492,14 +492,16 @@ namespace QLQuanAn
             if (dgvBan.SelectedRows.Count > 0)
             {
                 DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
-                String noidung = String.Format("Anh/chi có muốn xóa bàn '{0}' không?", dr[1]);
-                DialogResult dlr = MessageBox.Show(noidung, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dlr == DialogResult.Yes)
-                {
-                    dr.Delete();
-                    XuLyDuLieu.ghiDuLieu("BAN", dsBan);
-                }
+                SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("proc_XoaBan", conn);
+                cmd.Parameters.Add(new SqlParameter("@Ma", SqlDbType.Char));
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters["@Ma"].Value = dr[0];
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
+            Load_Ban();
         }
        
         private void dgvChiNhanh_SelectionChanged_1(object sender, EventArgs e)
@@ -515,7 +517,7 @@ namespace QLQuanAn
                 this.txtQuanLyCN.Text = dr[5].ToString();
                 LoadDSBan(dr[0].ToString());
                 MaCN = dr[0].ToString();
-                XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+                //XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
 
             }
         }
@@ -564,14 +566,16 @@ namespace QLQuanAn
             if (dgvChiNhanh.SelectedRows.Count > 0)
             {
                 DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
-                String noidung = String.Format("Anh/chi có muốn xóa chi nhánh '{0}' không?", dr[1]);
-                DialogResult dlr = MessageBox.Show(noidung, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dlr == DialogResult.Yes)
-                {
-                    dr.Delete();
-                    XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
-                }
+                SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("proc_XoaCN", conn);
+                cmd.Parameters.Add(new SqlParameter("@maCN", SqlDbType.Char));
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters["@maCN"].Value = dr[0];
+                cmd.ExecuteNonQuery();
+                conn.Close();
             }
+            Form_Load();
         }
 
         private void btXoa_Click(object sender, EventArgs e)
