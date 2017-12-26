@@ -61,6 +61,8 @@ namespace QLQuanAn
             dgvDSBan.Enabled = false;
             tsMenu1.Show();
             tsMenu2.Hide();
+            tp2.Enabled = false;
+            tp3.Enabled = false;
         }
 
         private void UDQL_Load(object sender, EventArgs e)
@@ -82,7 +84,7 @@ namespace QLQuanAn
             int j = 1;
             int z = 1;
             int y = 1;
-            dt = XuLyDuLieu.docDuLieu("Select * From BAN Where MaCN = N'" + MaCN + "'");
+            dt = XuLyDuLieu.docDuLieu("Select * From BAN Where MaCN = '" + MaCN + "'");
             foreach (DataRow dr in dt.Rows)
             {
                 Button N = new Button();
@@ -136,17 +138,16 @@ namespace QLQuanAn
                 M = int.Parse(dr[0].ToString());
             }
             Ma = M;
+            Load_Ban();
             dtDonHang = XuLyDuLieu.docDuLieu("Select D.MaDonHang, D.MaDH, M.TenMA, M.DonGia, D.SoLuong, M.DonGia * D.SoLuong as ThanhTien From DON_HANG D, MON_AN M, DAT_HANG DH Where D.MaDH = DH.MaDH and D.MaMA = M.MaMA and MaBan = " + MaBan);
             dv = new DataView(dtDonHang);
             dgvGioHang.DataSource = dv;
             dgvGioHang.Columns[0].Visible = false;
             dgvGioHang.Columns[1].Visible = false;
 
-
             dsChiNhanh = XuLyDuLieu.docDuLieu("Select * From Chi_Nhanh");
             ds = new DataView(dsChiNhanh);
             dgvChiNhanh.DataSource = ds;
-            
         }
 
         private void btMoi_Click(object sender, EventArgs e)
@@ -169,8 +170,6 @@ namespace QLQuanAn
         {
             DangNhap DN = new DangNhap();
             DN.ShowDialog();
-            Form_Load();
-            Load_Ban();
             if (DN.DialogResult == DialogResult.OK)
             {
                 tsMenu1.Hide();
@@ -179,6 +178,7 @@ namespace QLQuanAn
                 tp3.Enabled = true;
                 dgvDSBan.Enabled = true;
                 dgvDSBan.Show();
+                Form_Load();
             }
         }
 
@@ -471,8 +471,8 @@ namespace QLQuanAn
                 dr[1] = this.txtTenBan.Text;
                 dr[3] = this.cbTrangThai.Text;
                 XuLyDuLieu.ghiDuLieu("BAN", dsBan);
-
             }
+            Form_Load();
         }
         private void btThemBan_Click(object sender, EventArgs e)
         {
@@ -483,25 +483,31 @@ namespace QLQuanAn
             dr[3] = this.cbTrangThai.Text;
             dsBan.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("BAN", dsBan);
-            Load_Ban();
+            Form_Load();
         }
 
 
         private void btXoaBan_Click(object sender, EventArgs e)
         {
-            if (dgvBan.SelectedRows.Count > 0)
+            MaQL M = new MaQL();
+            M.ShowDialog();
+            if (M.DialogResult == DialogResult.OK)
             {
-                DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
-                SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("proc_XoaBan", conn);
-                cmd.Parameters.Add(new SqlParameter("@Ma", SqlDbType.Char));
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters["@Ma"].Value = dr[0];
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                if (dgvBan.SelectedRows.Count > 0)
+                {
+                    DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
+                    SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("proc_XoaBan", conn);
+                    cmd.Parameters.Add(new SqlParameter("@Ma", SqlDbType.Char));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters["@Ma"].Value = dr[0];
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
-            Load_Ban();
+            Form_Load();
+            LoadDSBan(txtMaCN.Text);
         }
        
         private void dgvChiNhanh_SelectionChanged_1(object sender, EventArgs e)
@@ -546,6 +552,7 @@ namespace QLQuanAn
                 dr[5] = this.txtQuanLyCN.Text;
                 XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
             }
+            Load_Ban();
         }
 
         private void btThemCN_Click(object sender, EventArgs e)
@@ -559,23 +566,30 @@ namespace QLQuanAn
             dr[5] = this.txtQuanLyCN.Text;
             dsChiNhanh.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+            Form_Load();
         }
 
         private void btXoaCN_Click_1(object sender, EventArgs e)
         {
-            if (dgvChiNhanh.SelectedRows.Count > 0)
+            MaQL A = new MaQL();
+            A.ShowDialog();
+            if (A.DialogResult == DialogResult.OK)
             {
-                DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
-                SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("proc_XoaCN", conn);
-                cmd.Parameters.Add(new SqlParameter("@maCN", SqlDbType.Char));
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters["@maCN"].Value = dr[0];
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                if (dgvChiNhanh.SelectedRows.Count > 0)
+                {
+                    DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
+                    SqlConnection conn = new SqlConnection(XuLyDuLieu.connectionString);
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("proc_XoaCN", conn);
+                    cmd.Parameters.Add(new SqlParameter("@maCN", SqlDbType.Char));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters["@maCN"].Value = dr[0];
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
             }
             Form_Load();
+
         }
 
         private void btXoa_Click(object sender, EventArgs e)
