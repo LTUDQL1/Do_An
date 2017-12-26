@@ -16,5 +16,10 @@ namespace QLQuanAn
         {
             InitializeComponent();
         }
+
+        private void MaQL_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
