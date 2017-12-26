@@ -56,12 +56,17 @@ namespace QLQuanAn
 
         private void btDangXuat_Click(object sender, EventArgs e)
         {
+            dgvDSBan.Controls.Clear();
+            dgvDSBan.Hide();
+            dgvDSBan.Enabled = false;
             tsMenu1.Show();
             tsMenu2.Hide();
         }
 
         private void UDQL_Load(object sender, EventArgs e)
         {
+            dgvDSBan.Enabled = false;
+            dgvDSBan.Hide();
             btGhiChu.Enabled = false;
             btMoi.Enabled = false;
             pnMonAn.Enabled = false;
@@ -171,6 +176,8 @@ namespace QLQuanAn
                 tsMenu2.Show();
                 tp2.Enabled = true;
                 tp3.Enabled = true;
+                dgvDSBan.Enabled = true;
+                dgvDSBan.Show();
             }
         }
 

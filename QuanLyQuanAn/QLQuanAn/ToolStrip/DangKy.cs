@@ -80,9 +80,7 @@ namespace QLQuanAn
                 this.Hide();
             }
             else
-                MessageBox.Show("Tài khoản đã tồn tại");
-            
-
+                MessageBox.Show("Tài khoản đã tồn tại");          
         }
     }
 }
