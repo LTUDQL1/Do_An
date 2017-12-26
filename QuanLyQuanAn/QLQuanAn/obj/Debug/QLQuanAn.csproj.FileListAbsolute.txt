@@ -134,3 +134,31 @@ E:\github\doan quan an\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.TrangMieng
 E:\github\doan quan an\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.UDQL.resources
 E:\github\doan quan an\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.csproj.GenerateResource.Cache
 E:\github\doan quan an\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Them.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\bin\Debug\QLQuanAn.exe.config
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.exe
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.pdb
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\bin\Debug\QLQuanAn.exe
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\bin\Debug\QLQuanAn.pdb
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.csprojResolveAssemblyReference.cache
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Them.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.GiaoHang.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.ChiNhanh.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.DangKy.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.DangNhap.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.dsKhachHang.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.GhiChu.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.HoaDon.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.KhachHang.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.MaQL.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.MaTD.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.MonChay.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.MonMan.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Nuoc.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.ProFile.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Properties.Resources.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.Salad.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.ThongKe.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.TongDai.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.TrangMiengDS.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.UDQL.resources
+E:\Documents\GitHub\Do_An\QuanLyQuanAn\QLQuanAn\obj\Debug\QLQuanAn.csproj.GenerateResource.Cache

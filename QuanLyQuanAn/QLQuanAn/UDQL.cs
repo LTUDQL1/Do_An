@@ -464,34 +464,28 @@ namespace QLQuanAn
             if (dgvBan.SelectedRows.Count > 0)
             {
                 DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
-                dr[2] = this.tbTenBan.Text;
+                dr[1] = this.txtTenBan.Text;
+                dr[3] = this.cbTrangThai.Text;
                 XuLyDuLieu.ghiDuLieu("BAN", dsBan);
+
             }
         }
-
-        private void dgvBan_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.tbTenBan.Text = this.dgvBan.Rows[e.RowIndex].Cells[2].Value.ToString();
-        }
-
- 
         private void btThemBan_Click(object sender, EventArgs e)
         {
-            DataRow dr = ((DataRowView)dgvChiNhanh.SelectedRows[0].DataBoundItem).Row;
-            dr = dsBan.NewRow();
-            dr[1] = dr[0];
-            dr[2] = tbTenBan.Text;
+            DataRow dr = dsBan.NewRow();
+            dr[1] = this.txtTenBan.Text;
+            dr[3] = this.cbTrangThai.Text;
             dsBan.Rows.Add(dr);
             XuLyDuLieu.ghiDuLieu("BAN", dsBan);
         }
 
-       
+
         private void btXoaBan_Click(object sender, EventArgs e)
         {
             if (dgvBan.SelectedRows.Count > 0)
             {
                 DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
-                String noidung = String.Format("Anh/chi có muốn xóa bàn '{0}' không?", dr[2]);
+                String noidung = String.Format("Anh/chi có muốn xóa bàn '{0}' không?", dr[1]);
                 DialogResult dlr = MessageBox.Show(noidung, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dlr == DialogResult.Yes)
                 {
@@ -500,7 +494,7 @@ namespace QLQuanAn
                 }
             }
         }
-
+       
         private void dgvChiNhanh_SelectionChanged_1(object sender, EventArgs e)
         {
             if (dgvChiNhanh.SelectedRows.Count > 0)
@@ -512,7 +506,10 @@ namespace QLQuanAn
                 this.txtDiaChiCN.Text = dr[3].ToString();
                 this.txtSDTCN.Text = dr[4].ToString();
                 this.txtQuanLyCN.Text = dr[5].ToString();
+                LoadDSBan(dr[0].ToString());
+                MaCN = dr[0].ToString();
                 XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsChiNhanh);
+
             }
         }
 
@@ -584,15 +581,41 @@ namespace QLQuanAn
                 cmd.Parameters["@MaDH"].Value = cn["MaDonHang"];
                 cmd.ExecuteNonQuery();
                 conn.Close();
-
+ 
                 cn.Delete();
             }
         }
+        private void LoadDSBan(string MaCN)
+        {
 
+            string str = "Select * From BAN Where MaCN like N'%"+MaCN.ToString()+"'" ;
+            dsBan = XuLyDuLieu.docDuLieu(str);
+            dgvBan.DataSource = dsBan;
+            dgvBan.Columns[0].Visible = false;
+            dgvBan.Columns[2].Visible = false;
+        }
         private void THEM_Click(object sender, EventArgs e)
         {
             Them frm = new Them();
             frm.Show();
+        }
+
+        private void btLamMoiBan_Click_1(object sender, EventArgs e)
+        {
+            this.txtTenBan.Text = "";
+            this.cbTrangThai.Text = "False";
+        }
+
+        private void dgvBan_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvBan.SelectedRows.Count > 0)
+            {
+                DataRow dr = ((DataRowView)dgvBan.SelectedRows[0].DataBoundItem).Row;
+                this.txtTenBan.Text = dr[1].ToString();
+                this.cbTrangThai.Text = dr[3].ToString();
+                XuLyDuLieu.ghiDuLieu("CHI_NHANH", dsBan);
+
+            }
         }
     }
 }

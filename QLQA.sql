@@ -139,6 +139,7 @@ Alter Table DON_HANG
 Add Constraint FK_DONHANG_DATHANG
 Foreign Key(MaDH)
 References DAT_HANG(MaDH)
+ON DELETE CASCADE
 
 Alter Table DAT_HANG
 Add Constraint FK_DATHANG_NHANVIEN
@@ -159,6 +160,7 @@ Alter Table DAT_HANG
 Add Constraint FK_DATHANG_BAN
 Foreign Key(MaBan)
 References BAN(MaBan)
+ON DELETE CASCADE
 
 Alter Table BAO_CAO
 Add Constraint FK_BAOCAO_NHANVIEN
@@ -184,6 +186,7 @@ Alter Table BAN
 Add Constraint FK_BAN_CHINHANH
 Foreign Key(MaCN)
 References CHI_NHANH(MaCN)
+ON DELETE CASCADE
 
 Alter Table HOA_DON
 Add Constraint FK_HOADON_DATHANG
@@ -408,3 +411,33 @@ Begin
 End
 --**Store CN
 --Sửa CN
+--Xóa CN
+GO
+CREATE PROC proc_XoaCN
+	@maCN CHAR(10)
+AS
+BEGIN
+	
+	IF EXISTS(SELECT TOP 1 1 FROM dbo.NHAN_VIEN nv, dbo.BAO_CAO bc, dbo.BAN b, dbo.DAT_HANG datH, dbo.DON_HANG donH,
+							 dbo.GIAO_HANG gh, dbo.MON_AN ma 
+			WHERE nv.MaCN = bc.MaCN AND bc.MaCN = b.MaCN AND b.MaCN = datH.MaCN AND datH.MaDH = donH.MaDH
+				AND donH.MaDH = gh.MaDH AND donH.MaMA = ma.MaMA AND ma.MaCN = @maCN)
+		BEGIN
+			DELETE dbo.NHAN_VIEN WHERE MaCN = @maCN
+			DELETE dbo.BAO_CAO WHERE MaCN = @maCN
+			DELETE dbo.BAN WHERE MaCN = @maCN
+			DELETE dbo.DAT_HANG WHERE MaCN = @maCN
+			DELETE dbo.MON_AN WHERE MaCN = @maCN
+		END 
+	DELETE dbo.CHI_NHANH WHERE MaCN = @maCN
+END
+GO
+
+--Xóa Bàn
+GO
+CREATE PROC proc_XoaBan
+	@
+AS
+BEGIN
+
+END

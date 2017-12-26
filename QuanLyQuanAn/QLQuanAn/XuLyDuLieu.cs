@@ -10,7 +10,7 @@ namespace QLQuanAn
 {
     class XuLyDuLieu
     {
-        public static String NameServerSQL = @"HUYHOANG";
+        public static String NameServerSQL = @"LYATUN\SQLEXPRESS";
         public static String connectionString = "Data Source= " + NameServerSQL + ";Initial Catalog=QLQA;Integrated Security=True";
 
         public static DataTable docDuLieu(String sql)
